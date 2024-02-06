@@ -1,7 +1,6 @@
 class plateau {
     /**
-     *
-     * @param
+     cette fonction permet de crée un tableau avec 11 colones et 10 ligne de 0
      */
     public static void main(String[] arg) {
         int[][] tableau;
