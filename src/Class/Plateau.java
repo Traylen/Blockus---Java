@@ -1,4 +1,6 @@
-class plateau {
+package Class;
+
+class Plateau {
 
     // Fonction pour créer le tableau
     public static int[][] creerTableau() {
