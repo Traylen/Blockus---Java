@@ -3,23 +3,35 @@ import java.util.Scanner;
 public class Main {
 
     public static int verificationEntier(){
+
         /** Cette fonction permet à l'utilisateur d'entrer un entier
          *  Elle permet de gérer les cas ou la valeur entrer ne correspond
          *  pas à un entier
          **/
+        boolean valeurValide = false;
         int valeur = 0;
-        try {
-            Scanner scanner = new Scanner(System.in);
-            valeur = scanner.nextInt();
-            return valeur;
+
+        while (!valeurValide || valeur == 0) {
+            try {
+                Scanner scanner = new Scanner(System.in);
+                valeur = scanner.nextInt();
+
+                if (valeur != 0) {
+                    valeurValide = true;
+                }
+
+                // Ajoutez ici la logique pour vérifier si 'valeur' est valide
+                // et affectez true à 'valeurValide' si c'est le cas
+
+            } catch (InputMismatchException e) { // Si la valeur n'est pas un entier
+                System.out.println("Veuillez entrer un chiffre (Qu'est ce que tu dis de ça Clément)");
+            } catch (Exception e) { // Si il y a une autre erreur quelconque
+                System.out.println("Veuillez entrer un chiffre (Pas à moi Clément)");
+            }
         }
-        catch (InputMismatchException e){ // Si la valeur n'est pas un entier
-            System.out.println("Veuillez entrer un chiffre ( Qu'est ce que tu dis de ça Clément )");
-        }
-        catch (Exception e){ // Si il y a une autre erreur quelconque
-            System.out.println("Veuillez entrer un chiffre ( Pas à moi CLément )");
-        }
+
         return valeur;
+
     }
 
     public static void menu(int i){
@@ -29,6 +41,10 @@ public class Main {
         System.out.println("3 - Quitter");
         System.out.println("\nChoisissez une option : ");
         int choix = verificationEntier();
+        if (choix<1 || choix>3) {
+            System.out.println("Ba clément c'est pas un des choix proposés ça");
+            choix = verificationEntier();
+        }
         if (choix == 1) {
             if (i == 10) {
                 System.out.println("ça fait 10 fois que tu lis les règles c'est bon là non ?");
@@ -36,10 +52,10 @@ public class Main {
             System.out.println("Voici les règles");
             menu(++i);
         }
-        if (choix == 2) {
+        else if (choix == 2) {
             System.out.println("Lancement jeu");
         }
-        if (choix == 3) {
+        else if (choix == 3) {
             System.out.println("\n Deconnexion en cours");
             System.exit(0);
         }
