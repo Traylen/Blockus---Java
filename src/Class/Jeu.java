@@ -28,7 +28,7 @@ public class Jeu {
             return;
         }
 
-        plateau[ligne][colonne] = 'X';//mettre X au bonne coordonnées
+        tableau[ligne][colonne] = 'X';//mettre X aux bonnes coordonnées
     }
 
     public char[][] creerPlateau() { // Fonction pour créer le tableau
@@ -77,46 +77,47 @@ public class Jeu {
     }
 
 
-    public void positionDeDepart(Joueur J1, Joueur J2) {
+    public static void positionDeDepart(Joueur J1, Joueur J2) {
         /**
          * Position pour 2 joueurs
          */
-        J1.positionX = 6;
-        J1.positionY = 5;
+        J1.colonne = 6;
+        J1.ligne = 5;
 
-        J2.positionX = 6;
-        J2.positionY = 6;
+
+        J2.colonne = 6;
+        J2.ligne = 6;
     }
 
-    public void positionDeDepart(Joueur J1, Joueur J2, Joueur J3) {
+    public static void positionDeDepart(Joueur J1, Joueur J2, Joueur J3) {
         /**
          * Position pour 3 joueurs
          */
-        J1.positionX = 5;
-        J1.positionY = 5;
+        J1.colonne = 5;
+        J1.ligne = 5;
 
-        J2.positionX = 7;
-        J2.positionY = 5;
+        J2.colonne = 7;
+        J2.ligne = 5;
 
-        J3.positionX = 6;
-        J3.positionY = 6;
+        J3.colonne = 6;
+        J3.ligne = 6;
     }
 
-    public void positionDeDepart(Joueur J1, Joueur J2, Joueur J3, Joueur J4) {
+    public static void positionDeDepart(Joueur J1, Joueur J2, Joueur J3, Joueur J4) {
         /**
          * Position pour 4 joueurs
          */
-        J1.positionX = 5;
-        J1.positionY = 5;
+        J1.colonne = 5;
+        J1.ligne = 5;
 
-        J2.positionX = 7;
-        J2.positionY = 5;
+        J2.colonne = 7;
+        J2.ligne = 5;
 
-        J3.positionX = 5;
-        J3.positionY = 6;
+        J3.colonne = 5;
+        J3.ligne = 6;
 
-        J4.positionX = 7;
-        J4.positionY = 6;
+        J4.colonne = 7;
+        J4.ligne = 6;
 
     }
 
@@ -155,43 +156,42 @@ public class Jeu {
             }
         }
     }
-        //Pareil que avant mais pour 3 joueurs
     public void placerJoueur (Joueur J1, Joueur J2, Joueur J3){
-
-            for (int i = 0; i < plateau.length; i++) {
-                for (int j = 0; j < plateau[i].length; j++) {
-                    if (i == J1.positionY && j == J1.positionX) {
-                        plateau[i][j] = J1.tag;
-                    }
-                    if (i == J2.positionY && j == J2.positionX) {
-                        plateau[i][j] = J2.tag;
-                    }
-                    if (i == J3.positionY && j == J3.positionX) {
-                        plateau[i][j] = J3.tag;
-                    }
+        /**
+         * Place les joueurs s'ils sont 3
+         */
+        for (int i = 0; i < plateau.length; i++) {
+            for (int j = 0; j < plateau[i].length; j++) {
+                if (i == J1.ligne && j == J1.colonne) {
+                    plateau[i][j] = J1.tag;
+                }
+                if (i == J2.ligne && j == J2.colonne) {
+                    plateau[i][j] = J2.tag;
+                }
+                if (i == J3.ligne && j == J3.colonne) {
+                    plateau[i][j] = J3.tag;
                 }
             }
         }
-    //Pareil que avant mais pour 4 joueurs
+    }
 
-        public void placerJoueur (Joueur J1, Joueur J2, Joueur J3, Joueur J4){
-            /**
-             * Place les joueurs s'ils sont 4
-             */
-            for (int i = 0; i < plateau.length; i++) {
-                for (int j = 0; j < plateau[i].length; j++) {
-                    if (i == J1.positionY && j == J1.positionX) {
-                        plateau[i][j] = J1.tag;
-                    }
-                    if (i == J2.positionY && j == J2.positionX) {
-                        plateau[i][j] = J2.tag;
-                    }
-                    if (i == J3.positionY && j == J3.positionX) {
-                        plateau[i][j] = J3.tag;
-                    }
-                    if (i == J4.positionY && j == J4.positionX) {
-                        plateau[i][j] = J4.tag;
-                    }
+    public void placerJoueur (Joueur J1, Joueur J2, Joueur J3, Joueur J4){
+        /**
+         * Place les joueurs s'ils sont 4
+         */
+        for (int i = 0; i < plateau.length; i++) {
+            for (int j = 0; j < plateau[i].length; j++) {
+                if (i == J1.ligne && j == J1.colonne) {
+                    plateau[i][j] = J1.tag;
+                }
+                if (i == J2.ligne && j == J2.colonne) {
+                    plateau[i][j] = J2.tag;
+                }
+                if (i == J3.ligne && j == J3.colonne) {
+                    plateau[i][j] = J3.tag;
+                }
+                if (i == J4.ligne && j == J4.colonne) {
+                    plateau[i][j] = J4.tag;
                 }
             }
         }
@@ -209,8 +209,8 @@ public class Jeu {
         public static void main (String[] args){
             Jeu jeu = new Jeu();
 
-            // Afficher le tableau
-            jeu.afficher();
-        }
+        // Afficher le tableau
+        jeu.afficher();
+    }
 }
 
