@@ -2,8 +2,9 @@ package Class;
 
 import java.util.Scanner;
 
-public class Jeu {
+import static Class.GestionErreurs.verificationEntier;
 
+public class Jeu {
     public char[][] plateau; // Modification du type à char[][]
 
     public Jeu() {
@@ -53,7 +54,25 @@ public class Jeu {
         }
     }
 
+    public int nombreJoueurs() {
+        /**
+         * Demande le nombre de joueurs et le stock dans une variable 'nbJoueurs'
+         * erreur dansle cas où c'est < 2 ou > 4
+         */
+        System.out.println("Nombre de joueurs : ");
+        int nbJoueurs = verificationEntier();
+        while (nbJoueurs < 2 || nbJoueurs > 4){
+            System.out.println("Vous devez être entre 2 et 4 joueurs : ");
+            nbJoueurs = verificationEntier();
+        }
+        return nbJoueurs;
+    }
+
+
     public void positionDeDepart(Joueur J1, Joueur J2) {
+        /**
+         * Position pour 2 joueurs
+         */
         J1.positionX = 6;
         J1.positionY = 5;
 
@@ -62,6 +81,9 @@ public class Jeu {
     }
 
     public void positionDeDepart(Joueur J1, Joueur J2, Joueur J3) {
+        /**
+         * Position pour 3 joueurs
+         */
         J1.positionX = 5;
         J1.positionY = 5;
 
@@ -73,6 +95,9 @@ public class Jeu {
     }
 
     public void positionDeDepart(Joueur J1, Joueur J2, Joueur J3, Joueur J4) {
+        /**
+         * Position pour 4 joueurs
+         */
         J1.positionX = 5;
         J1.positionY = 5;
 
@@ -98,7 +123,9 @@ public class Jeu {
         }
 
         public void placerJoueur (Joueur J1, Joueur J2){
-
+            /**
+             * Place les joueurs s'ils sont 2
+             */
             for (int i = 0; i < plateau.length; i++) {
                 for (int j = 0; j < plateau[i].length; j++) {
                     if (i == J1.positionY && j == J1.positionX) {
@@ -111,7 +138,9 @@ public class Jeu {
             }
         }
         public void placerJoueur (Joueur J1, Joueur J2, Joueur J3){
-
+            /**
+             * Place les joueurs s'ils sont 3
+             */
             for (int i = 0; i < plateau.length; i++) {
                 for (int j = 0; j < plateau[i].length; j++) {
                     if (i == J1.positionY && j == J1.positionX) {
@@ -128,7 +157,9 @@ public class Jeu {
         }
 
         public void placerJoueur (Joueur J1, Joueur J2, Joueur J3, Joueur J4){
-
+            /**
+             * Place les joueurs s'ils sont 4
+             */
             for (int i = 0; i < plateau.length; i++) {
                 for (int j = 0; j < plateau[i].length; j++) {
                     if (i == J1.positionY && j == J1.positionX) {
