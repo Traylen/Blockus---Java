@@ -40,7 +40,7 @@ public class Interface {
                     /**
                      * Affiche les règles et remontre le menu
                      */
-                    System.out.println("Voici les règles");
+                    System.out.println("Règles du jeu : \n \n 2 à 4 joueurs arrivent dans l'arène, le dernier en vie remporte la partie ! \n Les joueurs jouent chacun leur tour, lors d'un tour un joueur doit : \n • Se déplcer\n • Détruire une case\n Lorsqu'un joueur ne peut plus se déplacer, donc que toutes les cases autour de lui sont soit occupées, soit détruites, il est éliminé.");
                     menu(++i);
                     break;
 
@@ -49,6 +49,8 @@ public class Interface {
                      * Lance le jeu
                      */
                     System.out.println("Lancement jeu");
+                    Jeu plateau = new Jeu();
+                    plateau.afficher();
                     break;
 
                 case 3:

@@ -12,10 +12,5 @@ public class Main {
     public static void main(String[] args) {
         int i = 0;
         menu(i);
-
-        //Jeu plateau = new Jeu();
-
-        //plateau.afficher();
-
     }
 }
