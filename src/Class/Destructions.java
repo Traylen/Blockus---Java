@@ -8,10 +8,10 @@ public class Destructions {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Entrez l'indice de la ligne :");
-        int ligne = scanner.nextInt()-1;//indice de la ligne - 1
+        int ligne = scanner.nextInt();//indice de la ligne - 1
 
         System.out.println("Entrez l'indice de la colonne :");
-        int colonne = scanner.nextInt()-1;//indice de la colonne -1
+        int colonne = scanner.nextInt();//indice de la colonne -1
 
         if (ligne < 0 || ligne >= P.plateau.length || colonne < 0 || colonne >= P.plateau[ligne].length) {//vérifie que les indices des colonnes et des lignes sont dans le tableau
             System.out.println("Indices de ligne ou de colonne hors limites.");

@@ -48,32 +48,42 @@ public class Deplacements {
         P.plateau[ligne][colonne] = J.tag;
     }
 
-    public static void deplacer(Joueur J) { // Permet au Joueur de déplacer dans les cases adjacentes
+    public static String choisirDirection(Joueur J) {
         String direction = "O";
-        System.out.println("au tour de " + J.nom);
+        System.out.println("Au tour de " + J.nom);
         while ( direction == "O" ){
             System.out.println("\nZ : ↑ | Q : ← | S : ↓ | D : →");
             direction = verificationChaine(); // Récupère une chaîne de caractère
-
-            switch (direction){
-                case "Z": // Se déplace vers le Haut
-                    J.ligne -= 1;
-                    break;
-                case "S": // Se déplace vers le Bas
-                    J.ligne += 1;
-                    break;
-                case "Q": // Se déplace vers la gauche
-                    J.colonne -= 1;
-                    break;
-                case "D": // Se déplace vers la droite
-                    J.colonne += 1;
-                    break;
-                default: // Exeptions
-                    System.out.println("T'as pas bien lu j'crois");
-                    direction = "O";
-                    break;
+            if (!direction.equals("Z") && !direction.equals("Q") &&
+                !direction.equals("S") && !direction.equals("D")) {
+                System.out.println("Pas la bonne direction");
+                direction = "O";
             }
         }
+        return direction;
     }
+
+    public static void deplacement(Joueur J, Plateau P){
+        String direction = choisirDirection(J);
+        P.plateau[J.ligne][J.colonne] = '□';
+        switch (direction){
+            case "Z": // Se déplace vers le Haut
+                J.ligne -= 1;
+                break;
+            case "S": // Se déplace vers le Bas
+                J.ligne += 1;
+                break;
+            case "Q": // Se déplace vers la gauche
+                J.colonne -= 1;
+                break;
+            case "D": // Se déplace vers la droite
+                J.colonne += 1;
+                break;
+            default: // Exeptions
+                System.out.println("Problème");
+                break;
+        }
+    }
+
 
 }
