@@ -34,7 +34,38 @@ public class Jeu {
         }
     }
 
-    // Fonction principale pour tester la classe
+    public void placerJoueur(Joueur J1, Joueur J2){
+
+        for(int i = 0; i < plateau.length; i++) {
+            for(int j = 0; j < plateau[i].length; j++) {
+                if (i == J1.positionY && j == J1.positionX) {
+                    plateau[i][j] = 'Y';
+                }
+                if (i == J2.positionY && j == J2.positionX) {
+                    plateau[i][j] = 'N';
+                }
+            }
+        }
+    }
+
+    public void placerJoueur(Joueur J1, Joueur J2, Joueur J3){
+
+        for(int i = 0; i < plateau.length; i++) {
+            for(int j = 0; j < plateau[i].length; j++) {
+                if (i == J1.positionY && j == J1.positionX) {
+                    plateau[i][j] = 'Y';
+                }
+                if (i == J2.positionY && j == J2.positionX) {
+                    plateau[i][j] = 'N';
+                }
+                if (i == J3.positionY && j == J3.positionX) {
+                    plateau[i][j] = 'N';
+                }
+            }
+        }
+    }
+
+    // Fonction principale pour tester la fonction creerTableau
     public static void main(String[] args) {
         Jeu jeu = new Jeu();
 
