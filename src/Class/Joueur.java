@@ -2,15 +2,21 @@ package Class;
 
 public class Joueur {
 
-    //Les booléens permettant de determiner les actions que le joueur peut faire sur son tour
+    /**
+     * Les booléens permettant de determiner les actions que le joueur peut faire sur son tour
+     */
     boolean peutBouger = false;
     boolean peutDetruire = false;
-    //Valeurs qui serviront a differancier les differents joueurs
+    /**
+     * Valeurs qui serviront a differancier les differents joueurs
+     */
     String nom = "";
     String numeroJoueur = "";
 
 
-    //Les Getter et les Setter
+    /**
+     * Les Getter et les Setter
+     */
 
     public boolean isPeutBouger(){
         return peutBouger;
