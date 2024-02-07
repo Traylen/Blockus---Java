@@ -5,12 +5,15 @@ import java.util.Scanner;
 public class Jeu {
 
     public char[][] plateau; // Modification du type à char[][]
+    public  int nbjoueur;
+    boolean victoire = false;
 
     public Jeu() {
         this.plateau = creerPlateau();
     }
+    //fonction pour detruire une case
     public static void detruire(char[][] tableau) {
-        Scanner scanner = new Scanner(System.in); 
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Entrez l'indice de la ligne :");
         int ligne = scanner.nextInt()-1;//indice de la ligne - 1
@@ -145,8 +148,16 @@ public class Jeu {
                 }
             }
         }
+    public boolean victoire() {
+        if (nbjoueur == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-        // Fonction principale pour tester la fonction creerTableau
+
+    // Fonction principale pour tester la fonction creerTableau
         public static void main (String[] args){
             Jeu jeu = new Jeu();
 
