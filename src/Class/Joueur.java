@@ -2,6 +2,8 @@ package Class;
 
 import java.util.Scanner;
 
+import static Class.GestionErreurs.verificationChaine;
+
 public class Joueur {
 
     //Les booléens permettant de determiner les actions que le joueur peut faire sur son tour
@@ -20,29 +22,27 @@ public class Joueur {
         this.tag = ecrireTag();
     }
 
-    public void seDeplacer() {
-
+    public void seDeplacer() { // Permet au Joueur de déplacer dans les cases adjacentes
         String direction = "O";
 
         while ( direction == "O" ){
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Z : ↑ | Q : ← | S : ↓ | D : →");
-            direction = scanner.nextLine();
+            System.out.println("\nZ : ↑ | Q : ← | S : ↓ | D : →");
+            direction = verificationChaine(); // Récupère une chaîne de caractère
 
             switch (direction){
-                case "Z":
+                case "Z": // Se déplace vers le Haut
                     positionY -= 1;
                     break;
-                case "S":
+                case "S": // Se déplace vers le Bas
                     positionY += 1;
                     break;
-                case "Q":
+                case "Q": // Se déplace vers la gauche
                     positionX -= 1;
                     break;
-                case "D":
+                case "D": // Se déplace vers la droite
                     positionX += 1;
                     break;
-                default:
+                default: // Exeptions
                     System.out.println("T'as pas bien lu j'crois");
                     direction = "O";
                     break;
