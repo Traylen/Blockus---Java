@@ -42,3 +42,4 @@ public class Jeu {
         plateau.afficher();
     }
 }
+
