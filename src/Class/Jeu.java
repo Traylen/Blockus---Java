@@ -6,6 +6,8 @@ public class Jeu {
 
     public char[][] plateau; // Modification du type à char[][]
 
+    public int nbJoueurs;
+
     public Jeu() {
         this.plateau = creerPlateau();
     }

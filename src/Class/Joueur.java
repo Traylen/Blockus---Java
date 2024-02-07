@@ -76,21 +76,20 @@ public class Joueur {
         this.numeroJoueur = numeroJoueur;
     }
 
+    // Permet d'entrer un pseudo qui s'affichera en jeu
     public static String ecrirePseudo(){
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("Entrez votre pseudo : ");
         String pseudo;
-        pseudo = scanner.nextLine();
-
+        pseudo = scanner.nextLine(); // Donne a pseudo le texte entré precedemment
         return pseudo;
     }
+    // Sers a integrer un tag qui permettera de representer le joueur sur le tableau
     public static char ecrireTag(){
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("Entrez votre Tag! (Le tag sera utilisé pour vous représenté sur le plateau, il contient seulement 1 lettre : ");
         char Tag;
-        Tag = scanner.next().charAt(0);
+        Tag = scanner.next().charAt(0); //sers a donner a Tag la lettre entrée precedemment
         return Tag;
     }
 }
