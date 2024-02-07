@@ -43,29 +43,27 @@ public class Jeu {
             Joueurs.add(joueur);
         }
         caseDeDepart(Joueurs);
+
+        for (Joueur joueur : Joueurs ){
+            placer(joueur, plateau);
+        }
+
         System.out.println("QUE LA PARTIE COMMENCE");
 
 
-        //while ( Joueurs.toArray().length > 1 ){
+        while ( Joueurs.toArray().length > 1 ){
+
             for (Joueur joueur : Joueurs) {
                 plateau.afficher();
                 deplacer(joueur);
+                placer(joueur, plateau);
                 plateau.afficher();
                 detruire(plateau);
                 plateau.afficher();
             }
-            //if (J4 != null ){
-                //if (J4.peutBouger){
-                    //deplacer(J4);
-                    //placerJoueur(J4, plateau);
-                    //plateau.afficher();
-                    //detruire(plateau);
-                    //plateau.afficher();
-                    //    }
-            //}
 
 
-        //}
+        }
 
 
     }

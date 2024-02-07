@@ -41,7 +41,7 @@ public class Deplacements {
         }
     }
 
-    public void placer(Joueur J, Plateau P) {
+    public static void placer(Joueur J, Plateau P) {
         int colonne = J.colonne;
         int ligne = J.ligne;
 
