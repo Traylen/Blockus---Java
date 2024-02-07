@@ -82,7 +82,7 @@ public class Joueur {
         this.numeroJoueur = numeroJoueur;
     }
 
-    public static void main(String[] args) {
+    public static void ecrirePseudo(){
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Entrez votre pseudo : ");
