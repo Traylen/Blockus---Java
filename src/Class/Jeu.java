@@ -34,6 +34,39 @@ public class Jeu {
         }
     }
 
+    public void positionDeDepart(Joueur J1, Joueur J2){
+        J1.positionX = 6;
+        J1.positionY = 5;
+
+        J2.positionX = 6;
+        J2.positionY = 6;
+    }
+
+    public void positionDeDepart(Joueur J1, Joueur J2, Joueur J3){
+        J1.positionX = 5;
+        J1.positionY = 5;
+
+        J2.positionX = 7;
+        J2.positionY = 5;
+
+        J3.positionX = 6;
+        J3.positionY = 6;
+    }
+
+    public void positionDeDepart(Joueur J1, Joueur J2, Joueur J3, Joueur J4){
+        J1.positionX = 5;
+        J1.positionY = 5;
+
+        J2.positionX = 7;
+        J2.positionY = 5;
+
+        J3.positionX = 5;
+        J3.positionY = 6;
+
+        J4.positionX = 7;
+        J4.positionY = 6;
+    }
+
     public void placerJoueur(Joueur J1, Joueur J2){
 
         for(int i = 0; i < plateau.length; i++) {
@@ -47,7 +80,6 @@ public class Jeu {
             }
         }
     }
-
     public void placerJoueur(Joueur J1, Joueur J2, Joueur J3){
 
         for(int i = 0; i < plateau.length; i++) {
@@ -59,7 +91,27 @@ public class Jeu {
                     plateau[i][j] = 'N';
                 }
                 if (i == J3.positionY && j == J3.positionX) {
+                    plateau[i][j] = 'D';
+                }
+            }
+        }
+    }
+
+    public void placerJoueur(Joueur J1, Joueur J2, Joueur J3, Joueur J4){
+
+        for(int i = 0; i < plateau.length; i++) {
+            for(int j = 0; j < plateau[i].length; j++) {
+                if (i == J1.positionY && j == J1.positionX) {
+                    plateau[i][j] = 'Y';
+                }
+                if (i == J2.positionY && j == J2.positionX) {
                     plateau[i][j] = 'N';
+                }
+                if (i == J3.positionY && j == J3.positionX) {
+                    plateau[i][j] = 'D';
+                }
+                if (i == J4.positionY && j == J4.positionX) {
+                    plateau[i][j] = 'A';
                 }
             }
         }

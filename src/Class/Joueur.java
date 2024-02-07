@@ -14,10 +14,8 @@ public class Joueur {
     public int positionX;
     public int positionY;
 
-    public Joueur(String nom, int x, int y){
+    public Joueur(String nom){
         this.nom = nom;
-        this.positionX = x;
-        this.positionY = y;
     }
 
 
