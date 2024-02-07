@@ -10,20 +10,20 @@ public class Jeu {
         this.plateau = creerPlateau();
     }
     public static void detruire(char[][] tableau) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); 
 
         System.out.println("Entrez l'indice de la ligne :");
-        int ligne = scanner.nextInt()-1;
+        int ligne = scanner.nextInt()-1;//indice de la ligne - 1
 
         System.out.println("Entrez l'indice de la colonne :");
-        int colonne = scanner.nextInt()-1;
+        int colonne = scanner.nextInt()-1;//indice de la colonne -1
 
-        if (ligne < 0 || ligne >= tableau.length || colonne < 0 || colonne >= tableau[ligne].length) {
+        if (ligne < 0 || ligne >= tableau.length || colonne < 0 || colonne >= tableau[ligne].length) {//vérifie que les indices des colonnes et des lignes sont dans le tableau
             System.out.println("Indices de ligne ou de colonne hors limites.");
             return;
         }
 
-        tableau[ligne][colonne] = 'X';
+        tableau[ligne][colonne] = 'X';//mettre X au bonne coordonnées
     }
 
     public char[][] creerPlateau() { // Fonction pour créer le tableau
