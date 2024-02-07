@@ -9,6 +9,19 @@ public class Joueur {
     String nom = "";
     String numeroJoueur = "";
 
+    public int positionX;
+    public int positionY;
+
+    public Joueur(String nom, int x, int y){
+        this.nom = nom;
+        this.positionX = x;
+        this.positionY = y;
+    }
+
+
+
+
+
 
     //Les Getter et les Setter
 
