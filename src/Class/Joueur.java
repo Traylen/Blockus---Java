@@ -1,22 +1,31 @@
 package Class;
 
+import java.util.Scanner;
+
 public class Joueur {
 
-    /**
-     * Les booléens permettant de determiner les actions que le joueur peut faire sur son tour
-     */
+    //Les booléens permettant de determiner les actions que le joueur peut faire sur son tour
     boolean peutBouger = false;
     boolean peutDetruire = false;
-    /**
-     * Valeurs qui serviront a differancier les differents joueurs
-     */
-    String nom = "";
+    //Valeurs qui serviront a differancier les differents joueurs
+    static String nom = "";
     String numeroJoueur = "";
 
+    public int positionX;
+    public int positionY;
 
-    /**
-     * Les Getter et les Setter
-     */
+    public Joueur(String nom, int x, int y){
+        this.nom = nom;
+        this.positionX = x;
+        this.positionY = y;
+    }
+
+
+
+
+
+
+    //Les Getter et les Setter
 
     public boolean isPeutBouger(){
         return peutBouger;
@@ -34,7 +43,7 @@ public class Joueur {
         return nom;
     }
     public void SetNom(String nom) {
-        this.nom = nom;
+        Joueur.nom = nom;
     }
 
     public String GetNumeroJ() {
@@ -43,4 +52,14 @@ public class Joueur {
     public void SetNumeroJ(String numeroJoueur) {
         this.numeroJoueur = numeroJoueur;
     }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Entrez votre pseudo : ");
+        String pseudo;
+        pseudo = scanner.nextLine();
+        Joueur.nom = pseudo;
+    }
 }
+

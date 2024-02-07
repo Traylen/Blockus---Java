@@ -10,7 +10,25 @@ import static Class.Jeu.*;
 public class Main {
 
     public static void main(String[] args) {
-        int i = 0;
-        menu(i);
+
+        Jeu plateau = new Jeu();
+
+        //plateau.afficher();
+
+        Joueur Younes = new Joueur("Younes", 6, 5);
+        Joueur Nicolas = new Joueur("Nicolas", 6, 6);
+
+        plateau.placerJoueur(Younes, Nicolas);
+
+        plateau.afficher();
+
+
+
+
+
+
+
+
+
     }
 }
