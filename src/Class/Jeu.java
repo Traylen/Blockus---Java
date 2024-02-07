@@ -34,6 +34,17 @@ public class Jeu {
         }
     }
 
+    public void placerJoueur(Joueur J){
+
+        for(int i = 0; i < plateau.length; i++) {
+            for(int j = 0; j < plateau[i].length; j++) {
+                if (i == J.positionY && j == J.positionX) {
+                    plateau[i][j] = J.tag;
+                }
+            }
+        }
+    }
+
     public void placerJoueur(Joueur J1, Joueur J2){
 
         for(int i = 0; i < plateau.length; i++) {
