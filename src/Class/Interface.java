@@ -49,7 +49,7 @@ public class Interface {
                      * Lance le jeu
                      */
                     System.out.println("Lancement jeu");
-                    Jeu plateau = new Jeu();
+                    Plateau plateau = new Plateau();
                     plateau.afficher();
                     break;
 
@@ -72,95 +72,5 @@ public class Interface {
         }
     }
 
-    public static void Jouer() {
-        Jeu plateau = new Jeu();
 
-        plateau.nbJoueurs = 0;
-
-        while (plateau.nbJoueurs == 0 ) {
-            System.out.println("Combien de joueurs ?");
-            plateau.nbJoueurs = verificationEntier();
-
-            if (plateau.nbJoueurs == 1) {
-                System.out.println("Chef, t'as pas d'amis ou quoi ?");
-                plateau.nbJoueurs = 0;
-            }
-            else if (plateau.nbJoueurs < 2 || plateau.nbJoueurs > 4) {
-                System.out.println("Chef c'est des parties à 2, 3 ou 4 joueurs");
-                plateau.nbJoueurs = 0;
-            }
-        }
-
-        System.out.println("Lancement d'une partie à " + plateau.nbJoueurs + " joueurs");
-
-        Joueur J1 = null;
-        Joueur J2 = null;
-        Joueur J3 = null;
-        Joueur J4 = null;
-
-        if (plateau.nbJoueurs == 2) {
-            J1 = new Joueur();
-            J2 = new Joueur();
-            plateau.positionDeDepart(J1, J2);
-            plateau.placerJoueur(J1, J2);
-        } else if (plateau.nbJoueurs == 3) {
-            J1 = new Joueur();
-            J2 = new Joueur();
-            J3 = new Joueur();
-            plateau.positionDeDepart(J1, J2, J3);
-            plateau.placerJoueur(J1, J2, J3);
-        } else if (plateau.nbJoueurs == 4) {
-            J1 = new Joueur();
-            J2 = new Joueur();
-            J3 = new Joueur();
-            J4 = new Joueur();
-            plateau.positionDeDepart(J1, J2, J3, J4);
-            plateau.placerJoueur(J1, J2, J3, J4);
-        } else {
-            System.out.println("Erreur lors du chargement. Ça arrive. Retour au menu");
-        }
-
-        System.out.println("QUE LA PARTIE COMMENCE");
-
-        plateau.afficher();
-
-        while ( plateau.nbJoueurs > 1 ){
-            if (J1.peutBouger){
-                J1.seDeplacer();
-                plateau.placerJoueur(J1);
-                plateau.afficher();
-                plateau.detruire();
-                plateau.afficher();
-            }
-            if (J2.peutBouger){
-                J2.seDeplacer();
-                plateau.placerJoueur(J2);
-                plateau.afficher();
-                plateau.detruire();
-                plateau.afficher();
-            }
-            if (J3 != null ){
-                if (J3.peutBouger){
-                    J3.seDeplacer();
-                    plateau.placerJoueur(J3);
-                    plateau.afficher();
-                    plateau.detruire();
-                    plateau.afficher();
-                }
-            }
-            if (J4 != null ){
-                if (J4.peutBouger){
-                    J4.seDeplacer();
-                    plateau.placerJoueur(J4);
-                    plateau.afficher();
-                    plateau.detruire();
-                    plateau.afficher();
-                }
-            }
-
-
-        }
-
-
-    }
 }
