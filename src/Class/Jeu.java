@@ -1,11 +1,29 @@
 package Class;
 
+import java.util.Scanner;
+
 public class Jeu {
 
     public char[][] plateau; // Modification du type à char[][]
 
     public Jeu() {
         this.plateau = creerPlateau();
+    }
+    public static void detruire(char[][] tableau) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Entrez l'indice de la ligne :");
+        int ligne = scanner.nextInt()-1;
+
+        System.out.println("Entrez l'indice de la colonne :");
+        int colonne = scanner.nextInt()-1;
+
+        if (ligne < 0 || ligne >= tableau.length || colonne < 0 || colonne >= tableau[ligne].length) {
+            System.out.println("Indices de ligne ou de colonne hors limites.");
+            return;
+        }
+
+        tableau[ligne][colonne] = 'X';
     }
 
     public char[][] creerPlateau() { // Fonction pour créer le tableau
@@ -33,6 +51,7 @@ public class Jeu {
             System.out.println();
         }
     }
+
 
     // Fonction principale pour tester la classe
     public static void main(String[] args) {
