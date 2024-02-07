@@ -101,10 +101,10 @@ public class Jeu {
             for (int i = 0; i < plateau.length; i++) {
                 for (int j = 0; j < plateau[i].length; j++) {
                     if (i == J1.positionY && j == J1.positionX) {
-                        plateau[i][j] = 'Y';
+                        plateau[i][j] = J1.tag;
                     }
                     if (i == J2.positionY && j == J2.positionX) {
-                        plateau[i][j] = 'N';
+                        plateau[i][j] = J2.tag;
                     }
                 }
             }
@@ -114,13 +114,13 @@ public class Jeu {
             for (int i = 0; i < plateau.length; i++) {
                 for (int j = 0; j < plateau[i].length; j++) {
                     if (i == J1.positionY && j == J1.positionX) {
-                        plateau[i][j] = 'Y';
+                        plateau[i][j] = J1.tag;
                     }
                     if (i == J2.positionY && j == J2.positionX) {
-                        plateau[i][j] = 'N';
+                        plateau[i][j] = J2.tag;
                     }
                     if (i == J3.positionY && j == J3.positionX) {
-                        plateau[i][j] = 'D';
+                        plateau[i][j] = J3.tag;
                     }
                 }
             }
@@ -131,16 +131,16 @@ public class Jeu {
             for (int i = 0; i < plateau.length; i++) {
                 for (int j = 0; j < plateau[i].length; j++) {
                     if (i == J1.positionY && j == J1.positionX) {
-                        plateau[i][j] = 'Y';
+                        plateau[i][j] = J1.tag;
                     }
                     if (i == J2.positionY && j == J2.positionX) {
-                        plateau[i][j] = 'N';
+                        plateau[i][j] = J2.tag;
                     }
                     if (i == J3.positionY && j == J3.positionX) {
-                        plateau[i][j] = 'D';
+                        plateau[i][j] = J3.tag;
                     }
                     if (i == J4.positionY && j == J4.positionX) {
-                        plateau[i][j] = 'A';
+                        plateau[i][j] = J4.tag;
                     }
                 }
             }
