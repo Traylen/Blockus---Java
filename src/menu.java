@@ -35,6 +35,9 @@ public class menu {
     }
 
     public static void menu(int i){
+        /**
+         * créer les choix de menu
+         */
         System.out.println(" \nBienvenue dans le menu");
         System.out.println("\n1 - Lire les règles");
         System.out.println("2 - Jouer au jeu");
@@ -47,15 +50,31 @@ public class menu {
         }
         if (choix == 1) {
             if (i == 10) {
+                /**
+                 * Si menu ouvert +10 fois msg troll
+                 */
                 System.out.println("ça fait 10 fois que tu lis les règles c'est bon là non ?");
+            }
+            if (i == 100) {
+                /**
+                 * Si plus de 100 récursions, arrete le programme pour éviter que explose et tue les humains
+                 */
+                System.out.println("\n Deconnexion en cours, trop de récusrions, merci de relancer le programme");
+                System.exit(0);
             }
             System.out.println("Voici les règles");
             menu(++i);
         }
         else if (choix == 2) {
+            /**
+             * lance le jeu
+             */
             System.out.println("Lancement jeu");
         }
         else if (choix == 3) {
+            /**
+             * quitte le programme
+             */
             System.out.println("\n Deconnexion en cours");
             System.exit(0);
         }
