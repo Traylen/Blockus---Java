@@ -17,6 +17,7 @@ public class Joueur {
 
     public Joueur(){
         this.nom = ecrirePseudo();
+        this.tag = ecrireTag();
     }
 
     public void seDeplacer() {
@@ -48,10 +49,6 @@ public class Joueur {
             }
         }
     }
-
-
-
-
 
 
     //Les Getter et les Setter
@@ -87,6 +84,14 @@ public class Joueur {
         pseudo = scanner.nextLine();
 
         return pseudo;
+    }
+    public static char ecrireTag(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Entrez votre Tag! (Le tag sera utilisé pour vous représenté sur le plateau, il contient seulement 1 lettre : ");
+        char Tag;
+        Tag = scanner.next().charAt(0);
+        return Tag;
     }
 }
 

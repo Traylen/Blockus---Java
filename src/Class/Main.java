@@ -18,6 +18,7 @@ public class Main {
 
         Joueur Younes = new Joueur();
         System.out.println(Younes.nom);
+        System.out.println(Younes.tag);
 
 
         plateau.afficher();
