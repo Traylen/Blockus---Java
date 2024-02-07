@@ -3,8 +3,10 @@ package Class;
 import java.util.Scanner;
 
 import static Class.GestionErreurs.verificationChaine;
+import static Class.Jeu.plateau;
 
 public class Joueur {
+
 
     //Les booléens permettant de determiner les actions que le joueur peut faire sur son tour
     boolean peutBouger = false;
@@ -14,15 +16,53 @@ public class Joueur {
     public char tag;
     String numeroJoueur = "";
 
-    public int positionX;
-    public int positionY;
+    public int colonne;
+    public int ligne;
 
     public Joueur(){
         this.nom = ecrirePseudo();
         this.tag = ecrireTag();
     }
 
-    public void seDeplacer() { // Permet au Joueur de déplacer dans les cases adjacentes
+    public boolean peutBougerHaut(Jeu jeu){
+        char[][] plateau = jeu.plateau;
+        if (plateau[this.ligne - 1][this.colonne] != '/'){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean peutBougerBas(Jeu jeu){
+        char[][] plateau = jeu.plateau;
+        if (plateau[this.ligne + 1][this.colonne] != '/'){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean peutBougerDroite(Jeu jeu){
+        char[][] plateau = jeu.plateau;
+        if (plateau[this.ligne][this.colonne + 1] != '/'){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean peutBougerGauche(Jeu jeu){
+        char[][] plateau = jeu.plateau;
+        if (plateau[this.ligne][this.colonne - 1] != '/'){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
+    public void seDeplacer(Jeu plateau) { // Permet au Joueur de déplacer dans les cases adjacentes
+
         String direction = "O";
 
         while ( direction == "O" ){
@@ -31,16 +71,22 @@ public class Joueur {
 
             switch (direction){
                 case "Z": // Se déplace vers le Haut
-                    positionY -= 1;
+                    if (peutBougerHaut(plateau)) {
+                        ligne -= 1;
+                    } else {
+                        System.out.println("Case occupée");
+                    }
                     break;
                 case "S": // Se déplace vers le Bas
-                    positionY += 1;
+                    if (peutBougerBas(plateau)) {
+                        ligne += 1;
+                    }
                     break;
                 case "Q": // Se déplace vers la gauche
-                    positionX -= 1;
+                    colonne -= 1;
                     break;
                 case "D": // Se déplace vers la droite
-                    positionX += 1;
+                    colonne += 1;
                     break;
                 default: // Exeptions
                     System.out.println("T'as pas bien lu j'crois");
