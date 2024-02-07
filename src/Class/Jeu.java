@@ -10,12 +10,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 public class Jeu {
 
     public static int nbJoueurs = 0;
 
     public static void Jouer() {
         Plateau plateau = new Plateau();
+
 
         while (nbJoueurs == 0 ) {
             System.out.println("Combien de joueurs ?");
@@ -25,6 +27,7 @@ public class Jeu {
                 System.out.println("Chef, t'as pas d'amis ou quoi ?");
                 nbJoueurs = 0;
             }
+
             else if (nbJoueurs < 2 || nbJoueurs > 4) {
                 System.out.println("Chef c'est des parties à 2, 3 ou 4 joueurs");
                 nbJoueurs = 0;
@@ -66,5 +69,6 @@ public class Jeu {
 
 
     }
+
 
 }
