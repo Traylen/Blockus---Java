@@ -8,8 +8,7 @@ public class GestionErreurs {
     public static int verificationEntier(){
 
         /** Cette fonction permet à l'utilisateur d'entrer un entier
-         *  Elle permet de gérer les cas ou la valeur entrer ne correspond
-         *  pas à un entier
+         *  Elle permet de gérer les cas ou la valeur entrer ne correspond pas à un entier
          **/
 
         int valeur = 0;
