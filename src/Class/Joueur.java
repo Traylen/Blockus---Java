@@ -7,7 +7,7 @@ import static Class.GestionErreurs.verificationChaine;
 public class Joueur {
 
     //Les booléens permettant de determiner les actions que le joueur peut faire sur son tour
-    boolean peutBouger = false;
+    boolean peutBouger = true;
     boolean peutDetruire = false;
     //Valeurs qui serviront a differancier les differents joueurs
     public String nom;
@@ -24,7 +24,7 @@ public class Joueur {
 
     public void seDeplacer() { // Permet au Joueur de déplacer dans les cases adjacentes
         String direction = "O";
-
+        System.out.println("au tour de " + nom);
         while ( direction == "O" ){
             System.out.println("\nZ : ↑ | Q : ← | S : ↓ | D : →");
             direction = verificationChaine(); // Récupère une chaîne de caractère
