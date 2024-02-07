@@ -16,12 +16,9 @@ public class Main {
 
         //plateau.afficher();
 
-        Joueur Younes = new Joueur("Younes");
-        Joueur Nicolas = new Joueur("Nicolas");
-        Joueur Dede = new Joueur("Dede");
-        Joueur Alpha = new Joueur("Alpha");
-        plateau.positionDeDepart(Younes, Nicolas, Dede, Alpha);
-        plateau.placerJoueur(Younes, Nicolas, Dede, Alpha);
+        Joueur Younes = new Joueur();
+        System.out.println(Younes.nom);
+
 
         plateau.afficher();
 

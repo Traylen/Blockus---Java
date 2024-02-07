@@ -8,15 +8,15 @@ public class Joueur {
     boolean peutBouger = false;
     boolean peutDetruire = false;
     //Valeurs qui serviront a differancier les differents joueurs
-    static String nom;
+    public String nom;
     public char tag;
     String numeroJoueur = "";
 
     public int positionX;
     public int positionY;
 
-    public Joueur(String nom){
-        this.nom = nom;
+    public Joueur(){
+        this.nom = ecrirePseudo();
     }
 
     public void seDeplacer() {
@@ -71,9 +71,6 @@ public class Joueur {
     public String GetNom() {
         return nom;
     }
-    public void SetNom(String nom) {
-        Joueur.nom = nom;
-    }
 
     public String GetNumeroJ() {
         return numeroJoueur;
@@ -82,13 +79,14 @@ public class Joueur {
         this.numeroJoueur = numeroJoueur;
     }
 
-    public static void ecrirePseudo(){
+    public static String ecrirePseudo(){
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Entrez votre pseudo : ");
         String pseudo;
         pseudo = scanner.nextLine();
-        Joueur.nom = pseudo;
+
+        return pseudo;
     }
 }
 

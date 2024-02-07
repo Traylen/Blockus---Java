@@ -9,6 +9,7 @@ public class Jeu {
     public Jeu() {
         this.plateau = creerPlateau();
     }
+
     public static void detruire(char[][] tableau) {
         Scanner scanner = new Scanner(System.in);
 
