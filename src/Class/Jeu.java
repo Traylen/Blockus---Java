@@ -2,8 +2,9 @@ package Class;
 
 import java.util.Scanner;
 
-public class Jeu {
+import static Class.GestionErreurs.verificationEntier;
 
+public class Jeu {
     public char[][] plateau; // Modification du type à char[][]
 
     public int nbJoueurs;
@@ -13,20 +14,20 @@ public class Jeu {
     }
 
     public static void detruire(char[][] tableau) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); 
 
         System.out.println("Entrez l'indice de la ligne :");
-        int ligne = scanner.nextInt()-1;
+        int ligne = scanner.nextInt()-1;//indice de la ligne - 1
 
         System.out.println("Entrez l'indice de la colonne :");
-        int colonne = scanner.nextInt()-1;
+        int colonne = scanner.nextInt()-1;//indice de la colonne -1
 
-        if (ligne < 0 || ligne >= tableau.length || colonne < 0 || colonne >= tableau[ligne].length) {
+        if (ligne < 0 || ligne >= tableau.length || colonne < 0 || colonne >= tableau[ligne].length) {//vérifie que les indices des colonnes et des lignes sont dans le tableau
             System.out.println("Indices de ligne ou de colonne hors limites.");
             return;
         }
 
-        tableau[ligne][colonne] = 'X';
+        tableau[ligne][colonne] = 'X';//mettre X au bonne coordonnées
     }
 
     public char[][] creerPlateau() { // Fonction pour créer le tableau
@@ -55,7 +56,25 @@ public class Jeu {
         }
     }
 
+    public int nombreJoueurs() {
+        /**
+         * Demande le nombre de joueurs et le stock dans une variable 'nbJoueurs'
+         * erreur dansle cas où c'est < 2 ou > 4
+         */
+        System.out.println("Nombre de joueurs : ");
+        int nbJoueurs = verificationEntier();
+        while (nbJoueurs < 2 || nbJoueurs > 4){
+            System.out.println("Vous devez être entre 2 et 4 joueurs : ");
+            nbJoueurs = verificationEntier();
+        }
+        return nbJoueurs;
+    }
+
+
     public void positionDeDepart(Joueur J1, Joueur J2) {
+        /**
+         * Position pour 2 joueurs
+         */
         J1.positionX = 6;
         J1.positionY = 5;
 
@@ -64,6 +83,9 @@ public class Jeu {
     }
 
     public void positionDeDepart(Joueur J1, Joueur J2, Joueur J3) {
+        /**
+         * Position pour 3 joueurs
+         */
         J1.positionX = 5;
         J1.positionY = 5;
 
@@ -75,6 +97,9 @@ public class Jeu {
     }
 
     public void positionDeDepart(Joueur J1, Joueur J2, Joueur J3, Joueur J4) {
+        /**
+         * Position pour 4 joueurs
+         */
         J1.positionX = 5;
         J1.positionY = 5;
 
@@ -100,50 +125,56 @@ public class Jeu {
         }
 
         public void placerJoueur (Joueur J1, Joueur J2){
-
+            /**
+             * Place les joueurs s'ils sont 2
+             */
             for (int i = 0; i < plateau.length; i++) {
                 for (int j = 0; j < plateau[i].length; j++) {
                     if (i == J1.positionY && j == J1.positionX) {
-                        plateau[i][j] = 'Y';
+                        plateau[i][j] = J1.tag;
                     }
                     if (i == J2.positionY && j == J2.positionX) {
-                        plateau[i][j] = 'N';
+                        plateau[i][j] = J2.tag;
                     }
                 }
             }
         }
         public void placerJoueur (Joueur J1, Joueur J2, Joueur J3){
-
+            /**
+             * Place les joueurs s'ils sont 3
+             */
             for (int i = 0; i < plateau.length; i++) {
                 for (int j = 0; j < plateau[i].length; j++) {
                     if (i == J1.positionY && j == J1.positionX) {
-                        plateau[i][j] = 'Y';
+                        plateau[i][j] = J1.tag;
                     }
                     if (i == J2.positionY && j == J2.positionX) {
-                        plateau[i][j] = 'N';
+                        plateau[i][j] = J2.tag;
                     }
                     if (i == J3.positionY && j == J3.positionX) {
-                        plateau[i][j] = 'D';
+                        plateau[i][j] = J3.tag;
                     }
                 }
             }
         }
 
         public void placerJoueur (Joueur J1, Joueur J2, Joueur J3, Joueur J4){
-
+            /**
+             * Place les joueurs s'ils sont 4
+             */
             for (int i = 0; i < plateau.length; i++) {
                 for (int j = 0; j < plateau[i].length; j++) {
                     if (i == J1.positionY && j == J1.positionX) {
-                        plateau[i][j] = 'Y';
+                        plateau[i][j] = J1.tag;
                     }
                     if (i == J2.positionY && j == J2.positionX) {
-                        plateau[i][j] = 'N';
+                        plateau[i][j] = J2.tag;
                     }
                     if (i == J3.positionY && j == J3.positionX) {
-                        plateau[i][j] = 'D';
+                        plateau[i][j] = J3.tag;
                     }
                     if (i == J4.positionY && j == J4.positionX) {
-                        plateau[i][j] = 'A';
+                        plateau[i][j] = J4.tag;
                     }
                 }
             }
