@@ -18,6 +18,7 @@ public class Plateau {
         int lignes = plateau.length;
         int colonnes = plateau[0].length;
 
+
         for (int i = 0; i < lignes; i++) { // Boucle pour parcourir les lignes du tableau
             for (int j = 0; j < colonnes; j++) { // Boucle pour parcourir les colonnes du tableau
                 if (i == 0 || i == lignes - 1 || j == 0 || j == colonnes - 1) { // Condition pour vérifier si on est sur un bord
