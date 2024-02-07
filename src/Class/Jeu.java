@@ -6,6 +6,7 @@ import static Class.GestionErreurs.verificationEntier;
 
 public class Jeu {
     public char[][] plateau; // Modification du type à char[][]
+    public int nbJoueurs;
 
     public int nbJoueurs;
 
@@ -13,7 +14,7 @@ public class Jeu {
         this.plateau = creerPlateau();
     }
 
-    public static void detruire(char[][] tableau) {
+    public void detruire() {
         Scanner scanner = new Scanner(System.in); 
 
         System.out.println("Entrez l'indice de la ligne :");
@@ -22,12 +23,12 @@ public class Jeu {
         System.out.println("Entrez l'indice de la colonne :");
         int colonne = scanner.nextInt()-1;//indice de la colonne -1
 
-        if (ligne < 0 || ligne >= tableau.length || colonne < 0 || colonne >= tableau[ligne].length) {//vérifie que les indices des colonnes et des lignes sont dans le tableau
+        if (ligne < 0 || ligne >= plateau.length || colonne < 0 || colonne >= plateau[ligne].length) {//vérifie que les indices des colonnes et des lignes sont dans le tableau
             System.out.println("Indices de ligne ou de colonne hors limites.");
             return;
         }
 
-        tableau[ligne][colonne] = 'X';//mettre X au bonne coordonnées
+        plateau[ligne][colonne] = 'X';//mettre X au bonne coordonnées
     }
 
     public char[][] creerPlateau() { // Fonction pour créer le tableau

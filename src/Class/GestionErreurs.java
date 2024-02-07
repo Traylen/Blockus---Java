@@ -18,6 +18,9 @@ public class GestionErreurs {
             try {
                 Scanner scanner = new Scanner(System.in);
                 valeur = scanner.nextInt();
+                if (valeur == 0){
+                    System.out.println("Pas 0 chef !");
+                }
 
             } catch (InputMismatchException e) { // Si la valeur n'est pas un entier
                 System.out.println("Veuillez entrer un chiffre (Qu'est ce que tu dis de ça Clément)");
