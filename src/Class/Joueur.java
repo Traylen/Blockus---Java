@@ -2,8 +2,6 @@ package Class;
 
 import java.util.Scanner;
 
-import static Class.GestionErreurs.verificationChaine;
-import static Class.Jeu.plateau;
 
 public class Joueur {
 
@@ -24,77 +22,7 @@ public class Joueur {
         this.tag = ecrireTag();
     }
 
-    public boolean peutBougerHaut(Jeu jeu){
-        char[][] plateau = jeu.plateau;
-        if (plateau[this.ligne - 1][this.colonne] != '/'){
-            return false;
-        } else {
-            return true;
-        }
-    }
 
-    public boolean peutBougerBas(Jeu jeu){
-        char[][] plateau = jeu.plateau;
-        if (plateau[this.ligne + 1][this.colonne] != '/'){
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public boolean peutBougerDroite(Jeu jeu){
-        char[][] plateau = jeu.plateau;
-        if (plateau[this.ligne][this.colonne + 1] != '/'){
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public boolean peutBougerGauche(Jeu jeu){
-        char[][] plateau = jeu.plateau;
-        if (plateau[this.ligne][this.colonne - 1] != '/'){
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-
-    public void seDeplacer(Jeu plateau) { // Permet au Joueur de déplacer dans les cases adjacentes
-
-        String direction = "O";
-        System.out.println("au tour de " + nom);
-        while ( direction == "O" ){
-            System.out.println("\nZ : ↑ | Q : ← | S : ↓ | D : →");
-            direction = verificationChaine(); // Récupère une chaîne de caractère
-
-            switch (direction){
-                case "Z": // Se déplace vers le Haut
-                    if (peutBougerHaut(plateau)) {
-                        ligne -= 1;
-                    } else {
-                        System.out.println("Case occupée");
-                    }
-                    break;
-                case "S": // Se déplace vers le Bas
-                    if (peutBougerBas(plateau)) {
-                        ligne += 1;
-                    }
-                    break;
-                case "Q": // Se déplace vers la gauche
-                    colonne -= 1;
-                    break;
-                case "D": // Se déplace vers la droite
-                    colonne += 1;
-                    break;
-                default: // Exeptions
-                    System.out.println("T'as pas bien lu j'crois");
-                    direction = "O";
-                    break;
-            }
-        }
-    }
 
 
     //Les Getter et les Setter

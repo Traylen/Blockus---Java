@@ -1,216 +1,74 @@
 package Class;
 
-import java.util.Scanner;
-
+//import static Class.Deplacements.deplacer;
+import static Class.Deplacements.*;
+import static Class.Destructions.*;
 import static Class.GestionErreurs.verificationEntier;
+import Class.Deplacements.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class Jeu {
-    public char[][] plateau; // Modification du type à char[][]
-    public int nbJoueurs;
 
-    public int nbJoueurs;
+    public static int nbJoueurs = 0;
 
-    public Jeu() {
-        this.plateau = creerPlateau();
-    }
-    //fonction pour detruire une case
-    public static void detruire(char[][] tableau) {
-        Scanner scanner = new Scanner(System.in);
+    public static void Jouer() {
+        Plateau plateau = new Plateau();
 
-        System.out.println("Entrez l'indice de la ligne :");
-        int ligne = scanner.nextInt()-1;//indice de la ligne - 1
 
-        System.out.println("Entrez l'indice de la colonne :");
-        int colonne = scanner.nextInt()-1;//indice de la colonne -1
-
-        if (ligne < 0 || ligne >= plateau.length || colonne < 0 || colonne >= plateau[ligne].length) {//vérifie que les indices des colonnes et des lignes sont dans le tableau
-            System.out.println("Indices de ligne ou de colonne hors limites.");
-            return;
-        }
-
-        tableau[ligne][colonne] = 'X';//mettre X aux bonnes coordonnées
-    }
-
-    public char[][] creerPlateau() { // Fonction pour créer le tableau
-        char[][] plateau = new char[12][13];
-        int lignes = plateau.length;
-        int colonnes = plateau[0].length;
-
-        for (int i = 0; i < lignes; i++) { // Boucle pour parcourir les lignes du tableau
-            for (int j = 0; j < colonnes; j++) { // Boucle pour parcourir les colonnes du tableau
-                if (i == 0 || i == lignes - 1 || j == 0 || j == colonnes - 1) { // Condition pour vérifier si on est sur un bord
-                    plateau[i][j] = '1';
-                } else {
-                    plateau[i][j] = '/';
-                }
-            }
-        }
-        return plateau;
-    }
-
-    // Définition d'une méthode publique qui ne retourne rien, destinée à afficher un tableau
-    public void afficher() {
-        // Parcourt chaque ligne du tableau 'plateau'.
-        for (int i = 0; i < plateau.length; i++) {
-            // Parcourt chaque colonne de la ligne courante.
-            for (int j = 0; j < plateau[i].length; j++) {
-                // Affiche l'élément actuel du tableau suivi de deux espaces,
-                System.out.print(plateau[i][j] + "  ");
-            }
-            //affiche le tableau
-            System.out.println();
-        }
-    }
-
-    public int nombreJoueurs() {
-        /**
-         * Demande le nombre de joueurs et le stock dans une variable 'nbJoueurs'
-         * erreur dansle cas où c'est < 2 ou > 4
-         */
-        System.out.println("Nombre de joueurs : ");
-        int nbJoueurs = verificationEntier();
-        while (nbJoueurs < 2 || nbJoueurs > 4){
-            System.out.println("Vous devez être entre 2 et 4 joueurs : ");
+        while (nbJoueurs == 0 ) {
+            System.out.println("Combien de joueurs ?");
             nbJoueurs = verificationEntier();
-        }
-        return nbJoueurs;
-    }
 
+            if (nbJoueurs == 1) {
+                System.out.println("Chef, t'as pas d'amis ou quoi ?");
+                nbJoueurs = 0;
+            }
 
-    public static void positionDeDepart(Joueur J1, Joueur J2) {
-        /**
-         * Position pour 2 joueurs
-         */
-        J1.colonne = 6;
-        J1.ligne = 5;
-
-
-        J2.colonne = 6;
-        J2.ligne = 6;
-    }
-
-    public static void positionDeDepart(Joueur J1, Joueur J2, Joueur J3) {
-        /**
-         * Position pour 3 joueurs
-         */
-        J1.colonne = 5;
-        J1.ligne = 5;
-
-        J2.colonne = 7;
-        J2.ligne = 5;
-
-        J3.colonne = 6;
-        J3.ligne = 6;
-    }
-
-    public static void positionDeDepart(Joueur J1, Joueur J2, Joueur J3, Joueur J4) {
-        /**
-         * Position pour 4 joueurs
-         */
-        J1.colonne = 5;
-        J1.ligne = 5;
-
-        J2.colonne = 7;
-        J2.ligne = 5;
-
-        J3.colonne = 5;
-        J3.ligne = 6;
-
-        J4.colonne = 7;
-        J4.ligne = 6;
-
-    }
-
-    // Définition d'une méthode destinée à placer un objet Joueur sur un plateau de jeu.
-    public void placerJoueur (Joueur J){
-        // Parcourt chaque ligne du tableau 'plateau'.
-        for (int i = 0; i < plateau.length; i++) {
-            // Parcourt chaque colonne de la ligne courante.
-            for (int j = 0; j < plateau[i].length; j++) {
-                // Vérifie si les indices de la boucle correspondent à la position du joueur.
-                if (i == J.positionY && j == J.positionX) {
-                    // Si la condition est vraie, place le 'tag' du joueur à la position courante sur le plateau.
-                    plateau[i][j] = J.tag;
-                }
+            else if (nbJoueurs < 2 || nbJoueurs > 4) {
+                System.out.println("Chef c'est des parties à 2, 3 ou 4 joueurs");
+                nbJoueurs = 0;
             }
         }
-    }
+
+        System.out.println("Lancement d'une partie à " + nbJoueurs + " joueurs");
+
+        ArrayList<Joueur> Joueurs = new ArrayList<>();
+        for (int i = 1; i <= nbJoueurs; i++) {
+            System.out.println("Création du joueur " + i);
+            Joueur joueur = new Joueur();
+            Joueurs.add(joueur);
+        }
+        caseDeDepart(Joueurs);
+        System.out.println("QUE LA PARTIE COMMENCE");
 
 
-    // Définition d'une méthode  destinée à placer deux objets Joueur, J1 et J2, sur un plateau de jeu.
-    public void placerJoueur (Joueur J1, Joueur J2){
-        // Parcourt chaque ligne du tableau 'plateau'.
-        for (int i = 0; i < plateau.length; i++) {
-            // Parcourt chaque colonne de la ligne courante.
-            for (int j = 0; j < plateau[i].length; j++) {
-                // Vérifie si les indices de la boucle correspondent à la position du premier joueur, J1.
-                if (i == J1.positionY && j == J1.positionX) {
-                    // Si la condition est vraie, marque la position de J1 sur le plateau avec 'Y'.
-                    plateau[i][j] = 'Y';
-                }
-                // Vérifie si les indices de la boucle correspondent à la position du deuxième joueur, J2.
-                if (i == J2.positionY && j == J2.positionX) {
-                    // Si la condition est vraie, marque la position de J2 sur le plateau avec 'N'.
-                    plateau[i][j] = 'N';
-                }
+        //while ( Joueurs.toArray().length > 1 ){
+            for (Joueur joueur : Joueurs) {
+                plateau.afficher();
+                deplacer(joueur);
+                plateau.afficher();
+                detruire(plateau);
+                plateau.afficher();
             }
-        }
-    }
-    public void placerJoueur (Joueur J1, Joueur J2, Joueur J3){
-        /**
-         * Place les joueurs s'ils sont 3
-         */
-        for (int i = 0; i < plateau.length; i++) {
-            for (int j = 0; j < plateau[i].length; j++) {
-                if (i == J1.ligne && j == J1.colonne) {
-                    plateau[i][j] = J1.tag;
-                }
-                if (i == J2.ligne && j == J2.colonne) {
-                    plateau[i][j] = J2.tag;
-                }
-                if (i == J3.ligne && j == J3.colonne) {
-                    plateau[i][j] = J3.tag;
-                }
-            }
-        }
-    }
+            //if (J4 != null ){
+                //if (J4.peutBouger){
+                    //deplacer(J4);
+                    //placerJoueur(J4, plateau);
+                    //plateau.afficher();
+                    //detruire(plateau);
+                    //plateau.afficher();
+                    //    }
+            //}
 
-    public void placerJoueur (Joueur J1, Joueur J2, Joueur J3, Joueur J4){
-        /**
-         * Place les joueurs s'ils sont 4
-         */
-        for (int i = 0; i < plateau.length; i++) {
-            for (int j = 0; j < plateau[i].length; j++) {
-                if (i == J1.ligne && j == J1.colonne) {
-                    plateau[i][j] = J1.tag;
-                }
-                if (i == J2.ligne && j == J2.colonne) {
-                    plateau[i][j] = J2.tag;
-                }
-                if (i == J3.ligne && j == J3.colonne) {
-                    plateau[i][j] = J3.tag;
-                }
-                if (i == J4.ligne && j == J4.colonne) {
-                    plateau[i][j] = J4.tag;
-                }
-            }
-        }
-        //création d'une fonction de victoire
-    public boolean victoire() {
-        if (nbjoueur == 1) {//conditions de victoire
-            return true;
-        } else {
-            return false;
-        }
+
+        //}
+
+
     }
 
 
-    // Fonction principale pour tester la fonction creerTableau
-        public static void main (String[] args){
-            Jeu jeu = new Jeu();
-
-        // Afficher le tableau
-        jeu.afficher();
-    }
 }
-
