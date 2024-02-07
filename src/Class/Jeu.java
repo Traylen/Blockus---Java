@@ -65,6 +65,15 @@ public class Jeu {
 
         J4.positionX = 7;
         J4.positionY = 6;
+    public void placerJoueur(Joueur J){
+
+        for(int i = 0; i < plateau.length; i++) {
+            for(int j = 0; j < plateau[i].length; j++) {
+                if (i == J.positionY && j == J.positionX) {
+                    plateau[i][j] = J.tag;
+                }
+            }
+        }
     }
 
     public void placerJoueur(Joueur J1, Joueur J2){

@@ -8,7 +8,8 @@ public class Joueur {
     boolean peutBouger = false;
     boolean peutDetruire = false;
     //Valeurs qui serviront a differancier les differents joueurs
-    static String nom = "";
+    static String nom;
+    public char tag;
     String numeroJoueur = "";
 
     public int positionX;
@@ -16,6 +17,36 @@ public class Joueur {
 
     public Joueur(String nom){
         this.nom = nom;
+    }
+
+    public void seDeplacer() {
+
+        String direction = "O";
+
+        while ( direction == "O" ){
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Z : ↑ | Q : ← | S : ↓ | D : →");
+            direction = scanner.nextLine();
+
+            switch (direction){
+                case "Z":
+                    positionY -= 1;
+                    break;
+                case "S":
+                    positionY += 1;
+                    break;
+                case "Q":
+                    positionX -= 1;
+                    break;
+                case "D":
+                    positionX += 1;
+                    break;
+                default:
+                    System.out.println("T'as pas bien lu j'crois");
+                    direction = "O";
+                    break;
+            }
+        }
     }
 
 
