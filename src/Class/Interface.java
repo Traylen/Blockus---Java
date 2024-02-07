@@ -21,6 +21,10 @@ public class Interface {
                     if (i == 10) {
                         System.out.println("ça fait 10 fois que tu lis les règles c'est bon là non ?");
                     }
+                    if (i == 100) {
+                        System.out.println("Deconnexion en cour, trop de mémoire utilisée, va exploser et tue humains");
+                        System.exit(0);
+                    }
                     System.out.println("Voici les règles");
                     menu(++i);
                     break;

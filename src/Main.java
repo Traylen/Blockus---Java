@@ -14,9 +14,9 @@ public class Main {
         int i = 0;
         menu(i);
 
-        Jeu plateau = new Jeu();
+        //Jeu plateau = new Jeu();
 
-        plateau.afficherPlateau();
+        //plateau.afficher();
 
     }
 }
