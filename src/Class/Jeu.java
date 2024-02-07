@@ -13,9 +13,9 @@ public class Jeu {
     public Jeu() {
         this.plateau = creerPlateau();
     }
-
-    public void detruire() {
-        Scanner scanner = new Scanner(System.in); 
+    //fonction pour detruire une case
+    public static void detruire(char[][] tableau) {
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Entrez l'indice de la ligne :");
         int ligne = scanner.nextInt()-1;//indice de la ligne - 1
@@ -48,11 +48,16 @@ public class Jeu {
         return plateau;
     }
 
-    public void afficher() { // Affiche le tableau
+    // Définition d'une méthode publique qui ne retourne rien, destinée à afficher un tableau
+    public void afficher() {
+        // Parcourt chaque ligne du tableau 'plateau'.
         for (int i = 0; i < plateau.length; i++) {
+            // Parcourt chaque colonne de la ligne courante.
             for (int j = 0; j < plateau[i].length; j++) {
+                // Affiche l'élément actuel du tableau suivi de deux espaces,
                 System.out.print(plateau[i][j] + "  ");
             }
+            //affiche le tableau
             System.out.println();
         }
     }
@@ -115,35 +120,44 @@ public class Jeu {
 
     }
 
-        public void placerJoueur (Joueur J){
-            for (int i = 0; i < plateau.length; i++) {
-                for (int j = 0; j < plateau[i].length; j++) {
-                    if (i == J.positionY && j == J.positionX) {
-                        plateau[i][j] = J.tag;
-                    }
+    // Définition d'une méthode destinée à placer un objet Joueur sur un plateau de jeu.
+    public void placerJoueur (Joueur J){
+        // Parcourt chaque ligne du tableau 'plateau'.
+        for (int i = 0; i < plateau.length; i++) {
+            // Parcourt chaque colonne de la ligne courante.
+            for (int j = 0; j < plateau[i].length; j++) {
+                // Vérifie si les indices de la boucle correspondent à la position du joueur.
+                if (i == J.positionY && j == J.positionX) {
+                    // Si la condition est vraie, place le 'tag' du joueur à la position courante sur le plateau.
+                    plateau[i][j] = J.tag;
                 }
             }
         }
+    }
 
-        public void placerJoueur (Joueur J1, Joueur J2){
-            /**
-             * Place les joueurs s'ils sont 2
-             */
-            for (int i = 0; i < plateau.length; i++) {
-                for (int j = 0; j < plateau[i].length; j++) {
-                    if (i == J1.positionY && j == J1.positionX) {
-                        plateau[i][j] = J1.tag;
-                    }
-                    if (i == J2.positionY && j == J2.positionX) {
-                        plateau[i][j] = J2.tag;
-                    }
+
+    // Définition d'une méthode  destinée à placer deux objets Joueur, J1 et J2, sur un plateau de jeu.
+    public void placerJoueur (Joueur J1, Joueur J2){
+        // Parcourt chaque ligne du tableau 'plateau'.
+        for (int i = 0; i < plateau.length; i++) {
+            // Parcourt chaque colonne de la ligne courante.
+            for (int j = 0; j < plateau[i].length; j++) {
+                // Vérifie si les indices de la boucle correspondent à la position du premier joueur, J1.
+                if (i == J1.positionY && j == J1.positionX) {
+                    // Si la condition est vraie, marque la position de J1 sur le plateau avec 'Y'.
+                    plateau[i][j] = 'Y';
+                }
+                // Vérifie si les indices de la boucle correspondent à la position du deuxième joueur, J2.
+                if (i == J2.positionY && j == J2.positionX) {
+                    // Si la condition est vraie, marque la position de J2 sur le plateau avec 'N'.
+                    plateau[i][j] = 'N';
                 }
             }
         }
-        public void placerJoueur (Joueur J1, Joueur J2, Joueur J3){
-            /**
-             * Place les joueurs s'ils sont 3
-             */
+    }
+        //Pareil que avant mais pour 3 joueurs
+    public void placerJoueur (Joueur J1, Joueur J2, Joueur J3){
+
             for (int i = 0; i < plateau.length; i++) {
                 for (int j = 0; j < plateau[i].length; j++) {
                     if (i == J1.positionY && j == J1.positionX) {
@@ -158,6 +172,7 @@ public class Jeu {
                 }
             }
         }
+    //Pareil que avant mais pour 4 joueurs
 
         public void placerJoueur (Joueur J1, Joueur J2, Joueur J3, Joueur J4){
             /**
@@ -180,8 +195,17 @@ public class Jeu {
                 }
             }
         }
+        //création d'une fonction de victoire
+    public boolean victoire() {
+        if (nbjoueur == 1) {//conditions de victoire
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-        // Fonction principale pour tester la fonction creerTableau
+
+    // Fonction principale pour tester la fonction creerTableau
         public static void main (String[] args){
             Jeu jeu = new Jeu();
 
