@@ -22,6 +22,8 @@ public class Joueur {
 
     public int colonne;
     public int ligne;
+    private int score;
+
 
     public Joueur(){
         this.nom = ecrirePseudo();
@@ -92,6 +94,14 @@ public class Joueur {
             }
         }
         return Tag;
+    }
+
+    public void ajouterScore(int points) {
+        this.score += points;
+    }
+
+    public int getScore() {
+        return this.score;
     }
 }
 
