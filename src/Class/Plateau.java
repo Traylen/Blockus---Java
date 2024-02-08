@@ -43,6 +43,7 @@ public class Plateau {
         return plateau;
     }
 
+
     public void afficher() {
         /**
          * Affichage du tableau, parcourant ligne puis colonnes
