@@ -12,7 +12,8 @@ public class Interface {
         System.out.println(" \nBienvenue dans le Menu");
         System.out.println("\n1 - Lire les règles");
         System.out.println("2 - Jouer au jeu");
-        System.out.println("3 - Quitter");
+        System.out.println("3 - Scores");
+        System.out.println("4 - Quitter");
         System.out.println("\nChoisissez une option : ");
 
         int choix = 0;
@@ -54,6 +55,11 @@ public class Interface {
                     break;
 
                 case 3:
+                    /**
+                     * Ouvre le menu des scores
+                     */
+                    System.out.println("\n Normalement score s'affiche");
+                case 4:
                     /**
                      * Deconnecte le jeu
                      */
