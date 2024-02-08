@@ -2,6 +2,7 @@ package Class;
 
 import static Class.GestionErreurs.verificationEntier;
 import static Class.Jeu.Jouer;
+import static Class.Scores.*;
 
 public class Interface {
 
@@ -59,6 +60,10 @@ public class Interface {
                      * Ouvre le menu des scores
                      */
                     System.out.println("\n Normalement score s'affiche");
+                    afficherScores();
+                    break;
+
+
                 case 4:
                     /**
                      * Deconnecte le jeu
