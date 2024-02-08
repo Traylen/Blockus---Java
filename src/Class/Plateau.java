@@ -22,9 +22,9 @@ public class Plateau {
         for (int i = 0; i < lignes; i++) { // Boucle pour parcourir les lignes du tableau
             for (int j = 0; j < colonnes; j++) { // Boucle pour parcourir les colonnes du tableau
                 if (i == 0 || i == lignes - 1 || j == 0 || j == colonnes - 1) { // Condition pour vérifier si on est sur un bord
-                    plateau[i][j] = '1';
-                } else {
                     plateau[i][j] = '/';
+                } else {
+                    plateau[i][j] = '□';
                 }
             }
         }
@@ -35,7 +35,9 @@ public class Plateau {
         System.out.println("");
         for (int i = 0; i < plateau.length; i++) {
             for (int j = 0; j < plateau[i].length; j++) {
+                if (plateau[i][j] != '/') {
                 System.out.print(plateau[i][j] + "  ");
+                }
             }
             System.out.println();
         }
