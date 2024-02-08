@@ -10,12 +10,15 @@ public class Interface {
         /**
          * Affiche les choix disponibles
          */
-        System.out.println(" \nBienvenue dans le Menu");
-        System.out.println("\n1 - Lire les règles");
-        System.out.println("2 - Jouer au jeu");
-        System.out.println("3 - Scores");
-        System.out.println("4 - Quitter");
-        System.out.println("\nChoisissez une option : ");
+
+        System.out.println(" \n Bienvenue dans le Menu");
+        System.out.println(" \n ╭────────────────────────╮");
+        System.out.println(" │ 1 - Lire les règles    │");
+        System.out.println(" │ 2 - Jouer au jeu       │");
+        System.out.println(" │ 3 - Scores             │");
+        System.out.println(" │ 4 - Quitter            │");
+        System.out.println(" ╰────────────────────────╯");
+        System.out.println("\n Choisissez une option : ");
 
         int choix = 0;
 
@@ -37,13 +40,13 @@ public class Interface {
                         /**
                          * si lis les règles +100 fois, ferme le programme pour pas tue humains
                          */
-                        System.out.println("Deconnexion en cour, trop de mémoire utilisée, va exploser et tue humains");
+                        System.out.println("Deconnexion en cours, trop de mémoire utilisée, va exploser et tuer humains");
                         System.exit(0);
                     }
                     /**
                      * Affiche les règles et remontre le menu
                      */
-                    System.out.println("Règles du jeu : \n \n 2 à 4 joueurs arrivent dans l'arène, le dernier en vie remporte la partie ! \n Les joueurs jouent chacun leur tour, lors d'un tour un joueur doit : \n • Se déplcer\n • Détruire une case\n Lorsqu'un joueur ne peut plus se déplacer, donc que toutes les cases autour de lui sont soit occupées, soit détruites, il est éliminé.");
+                    System.out.println("Règles du jeu : \n\n╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮\n│ 2 à 4 joueurs arrivent dans l'arène, le dernier en vie remporte la partie !                                                           │\n│ Les joueurs jouent chacun leur tour, lors d'un tour un joueur doit :                                                                  │\n│ • Se déplacer                                                                                                                         │\n│ • Détruire une case                                                                                                                   │\n│ Lorsqu'un joueur ne peut plus se déplacer, donc que toutes les cases autour de lui sont soit occupées, soit détruites, il est éliminé.│\n╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯");
                     menu(++i);
                     break;
 

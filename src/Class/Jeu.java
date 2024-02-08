@@ -37,7 +37,7 @@ import java.util.List;
             }
 
             else if (nbJoueurs < 2 || nbJoueurs > 4) {
-                System.out.println("Chef c'est des parties à 2, 3 ou 4 joueurs");
+                System.out.println("Chef ce sont des parties à 2, 3 ou 4 joueurs");
                 nbJoueurs = 0;
             }
         }
@@ -70,7 +70,7 @@ import java.util.List;
 
 
             for (Joueur elimine : joueurElimine) {
-                System.out.println(elimine.nom + " est belle et bien éliminé");
+                System.out.println(elimine.nom + " est éliminé(e)");
                 Joueurs.remove(elimine);
             }
 
@@ -94,7 +94,7 @@ import java.util.List;
 
             for (int i = 0; i < Joueurs.toArray().length; i++) {
                 if (!verificationBouger(Joueurs.get(i), plateau)) {
-                    System.out.println(Joueurs.get(i).nom + " est éliminé");
+                    System.out.println(Joueurs.get(i).nom + " est éliminé(e)");
                     Joueurs.get(i).peutBouger = false;
                     joueurElimine.add(Joueurs.get(i));
                 }
@@ -105,20 +105,20 @@ import java.util.List;
 
             for (int i = 0; i < Joueurs.toArray().length; i++) {
                 if (!verificationBouger(Joueurs.get(i), plateau)) {
-                    System.out.println(Joueurs.get(i).nom + " est éliminé");
+                    System.out.println(Joueurs.get(i).nom + " est éliminé(e)");
                     Joueurs.get(i).peutBouger = false;
                     joueurElimine.add(Joueurs.get(i));
                 }
             }
 
         }
-        private static void scores(List<Joueur> Joueurs) {
-            if (Joueurs.size() == 1) {
-                Joueur joueurEnVie = Joueurs.get(0);
-                joueurEnVie.ajouterScore(5); // cette méthode ajoute le score au joueur
-                System.out.println("Le joueur " + joueurEnVie.nom + " gagne 5 points et a maintenant un score de " + joueurEnVie.getScore());
-            }
-        }
+        //private static void scores(List<Joueur> Joueurs) {
+           // if (Joueurs.size() == 1) {
+           //     Joueur joueurEnVie = Joueurs.get(0);
+           //     joueurEnVie.ajouterScore(5); // cette méthode ajoute le score au joueur
+            //    System.out.println("Le joueur " + joueurEnVie.nom + " gagne 5 points et a maintenant un score de " + joueurEnVie.getScore());
+          //  }
+    //    }
 
 
     }

@@ -81,16 +81,16 @@ public class Joueur {
 
     public static char ecrireTag(){
         //Scanner scanner = new Scanner(System.in);
-        System.out.println("Entrez votre Tag! (Le tag sera utilisé pour vous représenté sur le plateau, il contient seulement 1 lettre : ");
+        System.out.println("Entrez votre Tag! (Le tag sera utilisé pour vous représenter sur le plateau, il contient seulement 1 lettre : ");
 
         char Tag = 'X';
         //Tag = scanner.next().charAt(0); //sers a donner a Tag la lettre entrée precedemment
         while ( Tag == 'X' ) {
             Tag = verificationChar(); 
             if ( Tag >= 'a' && Tag <= 'z' || Tag >= 'A' && Tag <= 'Z' && Tag != 'X'){
-                System.out.println("Ton tag est carré");
+                System.out.println("Tag validé");
             } else {
-                System.out.println("Ecris une lettre de l'alphabet et arrête de faire l'ancien");
+                System.out.println("Ecris une lettre de l'alphabet et arrête de faire l'andouille");
                 Tag = 'X';
             }
         }

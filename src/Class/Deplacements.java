@@ -56,14 +56,16 @@ public class Deplacements {
 
     public static String choisirDirection(Joueur J) {
         String direction = "O";
-        System.out.println("Au tour de " + J.nom);
+        System.out.println("\n Au tour de " + J.nom);
         while ( direction == "O" ){
 
-            System.out.println("\n    Z      |      ↑");
-            System.out.println("Q   S   D  |  ←   ↓   →");
+            System.out.println(" \n ╭───────────────────────────────────────────╮");
+            System.out.println(" │     Z      |      ↑       |   R - Règles  │");
+            System.out.println(" │ Q   S   D  |  ←   ↓   →   |   X - Quitter │");
+            System.out.println(" ╰───────────────────────────────────────────╯");
 
-            System.out.println("R - Règles");
-            System.out.println("X - Quitter");
+            //System.out.println("R - Règles");
+            //System.out.println("X - Quitter");
             direction = verificationChaine().toUpperCase(); // Récupère une chaîne de caractère
 
             if (!direction.equals("Z") && !direction.equals("Q") &&
@@ -139,10 +141,10 @@ public class Deplacements {
                     /**
                      * Affiche les règles et remontre le menu
                      */
-                    System.out.println("Règles du jeu : \n \n 2 à 4 joueurs arrivent dans l'arène, le dernier en vie remporte la partie ! \n Les joueurs jouent chacun leur tour, lors d'un tour un joueur doit : \n • Se déplcer\n • Détruire une case\n Lorsqu'un joueur ne peut plus se déplacer, donc que toutes les cases autour de lui sont soit occupées, soit détruites, il est éliminé.");
+                    System.out.println("Règles du jeu : \n\n╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮\n│ 2 à 4 joueurs arrivent dans l'arène, le dernier en vie remporte la partie !                                                           │\n│ Les joueurs jouent chacun leur tour, lors d'un tour un joueur doit :                                                                  │\n│ • Se déplacer                                                                                                                         │\n│ • Détruire une case                                                                                                                   │\n│ Lorsqu'un joueur ne peut plus se déplacer, donc que toutes les cases autour de lui sont soit occupées, soit détruites, il est éliminé.│\n╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯");
                     break;
                 default: // Exeptions
-                    System.out.println("Problème");
+                    System.out.println("Si tu mets rien ça va pas marcher hein");
                     break;
             }
         }
