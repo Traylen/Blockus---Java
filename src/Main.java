@@ -1,4 +1,4 @@
-//package Class;
+package Class;
 import java.lang.invoke.TypeDescriptor;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -15,7 +15,7 @@ public class Main {
         /**
          * Fonctiion qui lance les autres fonctions, voir "Jeu.java"
          */
-        menu(0);
+        menu(1);
 
     }
 }
