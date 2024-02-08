@@ -53,17 +53,9 @@ public class Deplacements {
         String direction = "O";
         System.out.println("Au tour de " + J.nom);
         while ( direction == "O" ){
-            //System.out.println("\nZ : ↑ | Q : ← | S : ↓ | D : →");
-            //System.out.println("Z  |  Q  |  S  |  D");
-            //System.out.println("↑  |  ←  |  ↓  |  →");
-            //
-            //System.out.println("    ↑");
-            //System.out.println("    Z");
-            //System.out.println("←   ↓   →");
-            //System.out.println("Q   S   D");
-            //
-            System.out.println("    Z           ↑");
-            System.out.println("Q   S   D   ←   ↓   →");
+
+            System.out.println("\n    Z      |      ↑");
+            System.out.println("Q   S   D  |  ←   ↓   →");
             direction = verificationChaine().toUpperCase(); // Récupère une chaîne de caractère
             if (!direction.equals("Z") && !direction.equals("Q") &&
                 !direction.equals("S") && !direction.equals("D")) {
