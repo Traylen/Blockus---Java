@@ -15,16 +15,20 @@ public class Destructions {
         int colonne = 0;
 
         while ( !caseVide ){
+            /**
+             * récupération de la ligne et colonne entrée par le joueur
+             */
+            ligne = choixCase(P, "ligne");
 
-            ligne = choixCase(P, "ligne"); // Fonction qui récupére la ligne de la case à détruire
-
-            colonne = choixCase(P, "colonne"); // Fonction qui récupére la colonne de la case à détruire
+            colonne = choixCase(P, "colonne");
 
             caseVide = verificationCase(P.plateau, ligne, colonne);
 
         }
-
-        P.plateau[ligne][colonne] = 'X';//mettre X au bonne coordonnées
+        /**
+         * Mettre un "X" sur la case détruite
+         */
+        P.plateau[ligne][colonne] = 'X';
     }
 
     public static int choixCase(Plateau P, String axe){
@@ -33,6 +37,9 @@ public class Destructions {
         int nbColonnes = P.plateau[0].length-2;
 
         while ( choix < 1 ) {
+            /**
+             * Gestion des erreurs, si le joueur essaie de détruire une case out of range
+             */
             System.out.println("Entrez l'indice de la " + axe + " : ");
             choix = verificationEntier();
             switch (axe){

@@ -10,7 +10,9 @@ public class Deplacements {
 
     public static void caseDeDepart(ArrayList<Joueur> joueurs) {
         int nombreJoueurs = joueurs.size();
-
+        /**
+         * Placement de base pour 2, 3 ou 4 joueurs.
+         */
         switch (nombreJoueurs) {
             case 2:
                 joueurs.get(0).colonne = 6;
@@ -37,12 +39,14 @@ public class Deplacements {
                 joueurs.get(3).ligne = 6;
                 break;
             default:
-                // Gérer d'autres cas si nécessaire
                 break;
         }
     }
 
     public static void placer(Joueur J, Plateau P) {
+        /**
+         * Place les joueurs après avoir récupéré leur position
+         */
         int colonne = J.colonne;
         int ligne = J.ligne;
 
@@ -56,7 +60,10 @@ public class Deplacements {
 
             System.out.println("\n    Z      |      ↑");
             System.out.println("Q   S   D  |  ←   ↓   →");
-            direction = verificationChaine().toUpperCase(); // Récupère une chaîne de caractère
+            direction = verificationChaine().toUpperCase();
+            /**
+             * Récupère une chaine de caractères, tant que non valable recommence
+             */
             if (!direction.equals("Z") && !direction.equals("Q") &&
                 !direction.equals("S") && !direction.equals("D")) {
                 System.out.println("Pas la bonne direction");
@@ -70,34 +77,40 @@ public class Deplacements {
         boolean caseVide = false;
 
         while (!caseVide) {
+            /**
+             * Retire le tag de case précèdente, et déplace le joueur, "ZQSD" ou "zqsd"
+             */
             String direction = choisirDirection(J);
-            P.plateau[J.ligne][J.colonne] = '□'; // Retire le tag de la case précédente
+            P.plateau[J.ligne][J.colonne] = '□';
             switch (direction){
-                case "Z": // Se déplace vers le Haut
+                case "Z": //
                     caseVide = verificationCase(P.plateau, J.ligne-1, J.colonne);
                     if (caseVide){
                         J.ligne -= 1;
                     }
                     break;
-                case "S": // Se déplace vers le Bas
+                case "S": //
                     caseVide = verificationCase(P.plateau, J.ligne+1, J.colonne);
                     if (caseVide){
                         J.ligne += 1;
                     }
                     break;
-                case "Q": // Se déplace vers la gauche
+                case "Q": //
                     caseVide = verificationCase(P.plateau, J.ligne, J.colonne-1);
                     if (caseVide){
                         J.colonne -= 1;
                     }
                     break;
-                case "D": // Se déplace vers la droite
+                case "D": //
                     caseVide = verificationCase(P.plateau, J.ligne, J.colonne+1);
                     if (caseVide){
                         J.colonne += 1;
                     }
                     break;
-                default: // Exeptions
+                default:
+                    /**
+                     * Gestion des exeptions
+                     */
                     System.out.println("Problème");
                     break;
             }

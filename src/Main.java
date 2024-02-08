@@ -12,6 +12,9 @@ public class Main {
 
     public static void main(String[] args) {
 
+        /**
+         * Fonctiion qui lance les autres fonctions, voir "Jeu.java"
+         */
         Jouer();
 
     }
