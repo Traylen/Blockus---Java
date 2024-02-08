@@ -16,6 +16,8 @@ public class Joueur {
 
     public int colonne;
     public int ligne;
+    private int score;
+
 
     public Joueur(){
         this.nom = ecrirePseudo();
@@ -65,6 +67,14 @@ public class Joueur {
         char Tag;
         Tag = scanner.next().charAt(0); //sers a donner a Tag la lettre entrée precedemment
         return Tag;
+    }
+
+    public void ajouterScore(int points) {
+        this.score += points;
+    }
+
+    public int getScore() {
+        return this.score;
     }
 }
 
