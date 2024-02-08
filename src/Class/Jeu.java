@@ -72,7 +72,7 @@ import java.util.List;
             }
 
         }
-        void scores() {
+        public static void scores(Joueurs) {
             // Supposons que le joueur en vie est le dernier dans la liste Joueurs
             if (Joueurs.size() == 1) {
                 Joueur joueurEnVie = Joueurs.get(0); // Récupérer le dernier joueur restant
