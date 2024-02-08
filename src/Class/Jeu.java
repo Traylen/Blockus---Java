@@ -55,7 +55,7 @@ public class Jeu {
 
             for (Joueur joueur : Joueurs) {
                 plateau.afficher();
-                deplacer(joueur);
+                deplacement(joueur, plateau);
                 placer(joueur, plateau);
                 plateau.afficher();
                 detruire(plateau);
