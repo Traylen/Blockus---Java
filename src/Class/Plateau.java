@@ -31,6 +31,8 @@ public class Plateau {
         return plateau;
     }
 
+
+
     public void afficher() { // Affiche le tableau
         System.out.println("");
         for (int i = 0; i < plateau.length; i++) {

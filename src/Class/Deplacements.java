@@ -3,6 +3,7 @@ package Class;
 import java.util.ArrayList;
 
 import static Class.GestionErreurs.verificationChaine;
+import static Class.Deplacements.*;
 
 public class Deplacements {
 
@@ -48,16 +49,20 @@ public class Deplacements {
         P.plateau[ligne][colonne] = J.tag;
     }
 
+
+
     public static void deplacer(Joueur J) { // Permet au Joueur de déplacer dans les cases adjacentes
         String direction = "O";
-        System.out.println("au tour de " + J.nom);
+        System.out.println("Au tour de " + J.nom);
         while ( direction == "O" ){
             System.out.println("\nZ : ↑ | Q : ← | S : ↓ | D : →");
             direction = verificationChaine(); // Récupère une chaîne de caractère
 
             switch (direction){
                 case "Z": // Se déplace vers le Haut
+
                     J.ligne -= 1;
+
                     break;
                 case "S": // Se déplace vers le Bas
                     J.ligne += 1;
