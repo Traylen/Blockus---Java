@@ -1,15 +1,21 @@
 package Class;
 
 import java.util.Scanner;
+import static Class.GestionErreurs.verificationChaine;
+import static Class.GestionErreurs.verificationChar;
 
 
 public class Joueur {
 
 
-    //Les booléens permettant de determiner les actions que le joueur peut faire sur son tour
+    /**
+     * Bool qui determinent les actions que le joueur peut faire
+     */
     boolean peutBouger = true;
     boolean peutDetruire = false;
-    //Valeurs qui serviront a differancier les differents joueurs
+    /**
+     * Sert à diff les joueurs
+     */
     public String nom;
     public char tag;
     String numeroJoueur = "";
@@ -23,9 +29,10 @@ public class Joueur {
     }
 
 
-
-
-    //Les Getter et les Setter
+    /**
+     * Setter
+     * Getter
+     */
 
     public boolean isPeutBouger(){
         return peutBouger;
@@ -50,20 +57,40 @@ public class Joueur {
         this.numeroJoueur = numeroJoueur;
     }
 
+
     // Permet d'entrer un pseudo qui s'affichera en jeu
-    public static String ecrirePseudo(){
+    public static String ecrirePseudo() {
+
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Entrez votre pseudo : ");
         String pseudo;
-        pseudo = scanner.nextLine(); // Donne a pseudo le texte entré precedemment
+        do {
+            System.out.println("Entrez votre pseudo : ");
+            pseudo = scanner.nextLine();
+            if (pseudo.length() < 2 || pseudo.length() > 10) {
+                System.out.println("Votre pseudo doit comporter entre 2 et 10 caractères.");
+                pseudo = "0"; // Affectation temporaire pour continuer la boucle
+            }
+        } while (pseudo.equals("0"));
         return pseudo;
     }
+
     // Sers a integrer un tag qui permettera de representer le joueur sur le tableau
+
     public static char ecrireTag(){
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
         System.out.println("Entrez votre Tag! (Le tag sera utilisé pour vous représenté sur le plateau, il contient seulement 1 lettre : ");
-        char Tag;
-        Tag = scanner.next().charAt(0); //sers a donner a Tag la lettre entrée precedemment
+
+        char Tag = 'X';
+        //Tag = scanner.next().charAt(0); //sers a donner a Tag la lettre entrée precedemment
+        while ( Tag == 'X' ) {
+            Tag = verificationChar();
+            if ( Tag >= 'a' && Tag <= 'z' || Tag >= 'A' && Tag <= 'Z' && Tag != 'X'){
+                System.out.println("Ton tag est carré");
+            } else {
+                System.out.println("Ecris une lettre de l'alphabet et arrête de faire l'ancien");
+                Tag = 'X';
+            }
+        }
         return Tag;
     }
 }

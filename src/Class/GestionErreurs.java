@@ -22,9 +22,15 @@ public class GestionErreurs {
                     System.out.println("Pas de 0, ni de nombre négatif chef !");
                 }
 
-            } catch (InputMismatchException e) { // Si la valeur n'est pas un entier
+            } catch (InputMismatchException e) {
+                /**
+                 * Si la valeur n'est pas un entier
+                 */
                 System.out.println("Veuillez entrer un chiffre (Qu'est ce que tu dis de ça Clément)");
-            } catch (Exception e) { // Si il y a une autre erreur quelconque
+            } catch (Exception e) {
+                /**
+                 * S'il y a une autre erreur
+                 */
                 System.out.println("Veuillez entrer un chiffre (Pas à moi Clément)");
             }
         }
@@ -47,9 +53,15 @@ public class GestionErreurs {
                 Scanner scanner = new Scanner(System.in);
                 valeur = scanner.nextLine();
 
-            } catch (InputMismatchException e) { // Si la valeur n'est pas un entier
+            } catch (InputMismatchException e) {
+                /**
+                 * Si la valeur n'est pas un entier
+                 */
                 System.out.println("Veuillez entrer une chaîne de charactère (Oui Clément, on a tout prévu)");
-            } catch (Exception e) { // Si il y a une autre erreur quelconque
+            } catch (Exception e) {
+                /**
+                 * S'il y a une autre erreur
+                 */
                 System.out.println("Veuillez entrer une chaîne de charactère (Bien essayé )");
             }
         }
@@ -59,6 +71,10 @@ public class GestionErreurs {
     }
 
     public static boolean verificationCase(char [][] plateau, int ligne, int colonne){
+        /**
+         * Gestion des erreurs en jeu
+         * si joueur déjà présent, si case détruite, si bord du terrain
+         */
         if (plateau[ligne][colonne] == '□') {}
         switch (plateau[ligne][colonne]) {
             case '□':

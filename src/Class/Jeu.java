@@ -18,7 +18,9 @@ public class Jeu {
     public static void Jouer() {
         Plateau plateau = new Plateau();
 
-
+        /**
+         * Lancement des fonctions pour l'initialisation de la partie
+         */
         while (nbJoueurs == 0 ) {
             System.out.println("Combien de joueurs ?");
             nbJoueurs = verificationEntier();
@@ -50,6 +52,9 @@ public class Jeu {
 
         System.out.println("QUE LA PARTIE COMMENCE");
 
+        /**
+         * Lancement des fonctions pour le déroulement de la partie
+         */
 
         while ( Joueurs.toArray().length > 1 ){
 
