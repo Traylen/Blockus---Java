@@ -72,11 +72,10 @@ import java.util.List;
             }
 
         }
-        void scores() {
-            // Supposons que le joueur en vie est le dernier dans la liste Joueurs
+        private static void scores(List<Joueur> Joueurs) {
             if (Joueurs.size() == 1) {
-                Joueur joueurEnVie = Joueurs.get(0); // Récupérer le dernier joueur restant
-                joueurEnVie.ajouterScore(5); // Ajouter 5 points au score du joueur en vie
+                Joueur joueurEnVie = Joueurs.get(0);
+                joueurEnVie.ajouterScore(5); // cette méthode ajoute le score au joueur
                 System.out.println("Le joueur " + joueurEnVie.nom + " gagne 5 points et a maintenant un score de " + joueurEnVie.getScore());
             }
         }
