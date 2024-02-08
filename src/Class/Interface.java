@@ -1,6 +1,7 @@
 package Class;
 
 import static Class.GestionErreurs.verificationEntier;
+import static Class.Jeu.Jouer;
 
 public class Interface {
 
@@ -49,8 +50,7 @@ public class Interface {
                      * Lance le jeu
                      */
                     System.out.println("Lancement jeu");
-                    Plateau plateau = new Plateau();
-                    plateau.afficher();
+                    Jouer();
                     break;
 
                 case 3:
