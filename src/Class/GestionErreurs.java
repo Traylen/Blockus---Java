@@ -14,12 +14,12 @@ public class GestionErreurs {
 
         int valeur = 0;
 
-        while (valeur == 0) {
+        while (valeur < 1) {
             try {
                 Scanner scanner = new Scanner(System.in);
                 valeur = scanner.nextInt();
-                if (valeur == 0){
-                    System.out.println("Pas 0 chef !");
+                if (valeur < 1){
+                    System.out.println("Pas de 0, ni de nombre négatif chef !");
                 }
 
             } catch (InputMismatchException e) { // Si la valeur n'est pas un entier
@@ -56,5 +56,23 @@ public class GestionErreurs {
 
         return valeur;
 
+    }
+
+    public static boolean verificationCase(char [][] plateau, int ligne, int colonne){
+        if (plateau[ligne][colonne] == '□') {}
+        switch (plateau[ligne][colonne]) {
+            case '□':
+                return true;
+            case 'X':
+                System.out.println("Mais enfin pas cette case, elle est détruire");
+                return false;
+            case '/':
+                System.out.println("Vous voulez sortir du plateau ? Vous vous ennuyez à ce point ?");
+                return false;
+            default:
+                System.out.println("Vous ne pouvez pas choisir cette case voyons, il y a un joueur dessue");
+                break;
+        }
+        return false;
     }
 }
