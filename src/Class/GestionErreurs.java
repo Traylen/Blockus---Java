@@ -70,7 +70,7 @@ public class GestionErreurs {
                 System.out.println("Vous voulez sortir du plateau ? Vous vous ennuyez à ce point ?");
                 return false;
             default:
-                System.out.println("Vous ne pouvez pas choisir cette case voyons, il y a un joueur dessue");
+                System.out.println("Vous ne pouvez pas choisir cette case voyons, il y a un joueur dessus");
                 break;
         }
         return false;
