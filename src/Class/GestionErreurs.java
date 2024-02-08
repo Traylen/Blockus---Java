@@ -113,4 +113,12 @@ public class GestionErreurs {
         }
         return false;
     }
+
+    public static boolean verificationBouger(Joueur J, Plateau P){
+        if (P.plateau[J.ligne-1][J.colonne] != '□' && P.plateau[J.ligne+1][J.colonne] != '□' && P.plateau[J.ligne][J.colonne-1] != '□' && P.plateau[J.ligne][J.colonne+1] != '□') {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
