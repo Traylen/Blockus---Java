@@ -85,7 +85,7 @@ public class Joueur {
         char Tag = 'X';
         //Tag = scanner.next().charAt(0); //sers a donner a Tag la lettre entrée precedemment
         while ( Tag == 'X' ) {
-            Tag = verificationChar();
+            Tag = verificationChar(); 
             if ( Tag >= 'a' && Tag <= 'z' || Tag >= 'A' && Tag <= 'Z' && Tag != 'X'){
                 System.out.println("Ton tag est carré");
             } else {
