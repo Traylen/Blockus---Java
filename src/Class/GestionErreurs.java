@@ -65,11 +65,30 @@ public class GestionErreurs {
                 System.out.println("Veuillez entrer une chaîne de charactère (Bien essayé )");
             }
         }
+        return valeur;
+    }
 
+    public static char verificationChar(){
+
+        /**
+         * Cette fonction permet à l'utilisateur d'entrer une chaîne de charactère
+         *  Elle permet de gérer les cas ou la valeur entrer ne correspond pas à une chaîne de caractère
+         **/
+
+        char valeur = 'O';
+        while (valeur == 'O') {
+            try {
+                Scanner scanner = new Scanner(System.in);
+                valeur = scanner.next().charAt(0);
+            } catch (InputMismatchException e) { // Si la valeur n'est pas un char
+                System.out.println("Veuillez entrer un charactère unique (Oui Clément, on a tout prévu)");
+            } catch (Exception e) { // Si il y a une autre erreur quelconque
+                System.out.println("Veuillez entrer un charactère unique (Bien essayé )");
+            }
+        }
         return valeur;
 
     }
-
     public static boolean verificationCase(char [][] plateau, int ligne, int colonne){
         /**
          * Gestion des erreurs en jeu
