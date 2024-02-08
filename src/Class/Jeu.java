@@ -3,11 +3,13 @@ package Class;
 //import static Class.Deplacements.deplacer;
 import static Class.Deplacements.*;
 import static Class.Destructions.*;
+import static Class.GestionErreurs.verificationBouger;
 import static Class.GestionErreurs.verificationEntier;
 import Class.Deplacements.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -55,23 +57,59 @@ public class Jeu {
         /**
          * Lancement des fonctions pour le déroulement de la partie
          */
+        int index = -1; // Permet de gérer le tour de chaque joueurs
+        Joueur J; // Variable qui stock le joueur qui joue
+        ArrayList<Joueur> joueurElimine = new ArrayList<>();
 
-        while ( Joueurs.toArray().length > 1 ){
+        while ( Joueurs.toArray().length > 1 ) {
+            System.out.println("Début boucle");
 
-            for (Joueur joueur : Joueurs) {
-                plateau.afficher();
-                deplacement(joueur, plateau);
-                placer(joueur, plateau);
-                plateau.afficher();
-                detruire(plateau);
-                plateau.afficher();
+
+            for (Joueur elimine : joueurElimine) {
+                System.out.println(elimine.nom + " est belle et bien éliminé");
+                Joueurs.remove(elimine);
             }
 
+            if (Joueurs.toArray().length == 1) {
+                System.out.println("FIN DE LA PARTIE");
+                break;
+            }
+
+            if ( index < Joueurs.toArray().length-1) { // Incrémenté pour faire jouer chaque joueur
+                index++;
+            } else if ( index == Joueurs.toArray().length-1 ) {
+                index = 0;
+            }
+
+            J = Joueurs.get(index); // Le joueur a qui c'est le tour
+
+            plateau.afficher();
+
+            deplacement(J, plateau);
+            placer(J, plateau);
+
+            for (int i = 0; i < Joueurs.toArray().length; i++) {
+                if (!verificationBouger(Joueurs.get(i), plateau)) {
+                    System.out.println(Joueurs.get(i).nom + " est éliminé");
+                    Joueurs.get(i).peutBouger = false;
+                    joueurElimine.add(Joueurs.get(i));
+                }
+            }
+
+            plateau.afficher();
+            detruire(plateau);
+
+            for (int i = 0; i < Joueurs.toArray().length; i++) {
+                if (!verificationBouger(Joueurs.get(i), plateau)) {
+                    System.out.println(Joueurs.get(i).nom + " est éliminé");
+                    Joueurs.get(i).peutBouger = false;
+                    joueurElimine.add(Joueurs.get(i));
+                }
+            }
 
         }
-
-
     }
-
-
 }
+
+
+
