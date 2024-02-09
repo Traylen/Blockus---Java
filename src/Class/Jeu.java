@@ -44,15 +44,15 @@ import java.util.List;
 
         System.out.println("Lancement d'une partie à " + nbJoueurs + " joueurs");
 
-        ArrayList<Joueur> Joueurs = new ArrayList<>();
+        ArrayList<Joueur> enJeu = new ArrayList<>();
         for (int i = 1; i <= nbJoueurs; i++) {
             System.out.println("Création du joueur " + i);
             Joueur joueur = new Joueur();
-            Joueurs.add(joueur);
+            enJeu.add(joueur);
         }
-        caseDeDepart(Joueurs);
+        caseDeDepart(enJeu);
 
-        for (Joueur joueur : Joueurs ){
+        for (Joueur joueur : enJeu ){
             placer(joueur, plateau);
         }
 
@@ -65,60 +65,64 @@ import java.util.List;
         Joueur J; // Variable qui stock le joueur qui joue
         ArrayList<Joueur> joueurElimine = new ArrayList<>();
 
-        while ( Joueurs.toArray().length > 1 ) {
+        while ( enJeu.toArray().length > 1 ) {
             System.out.println("Début boucle");
 
 
             for (Joueur elimine : joueurElimine) {
                 System.out.println(elimine.nom + " est belle et bien éliminé");
-                Joueurs.remove(elimine);
+                enJeu.remove(elimine);
             }
 
-            if (Joueurs.toArray().length == 1) {
+            if (enJeu.toArray().length == 1) {
                 System.out.println("FIN DE LA PARTIE");
                 break;
             }
 
-            if ( index < Joueurs.toArray().length-1) { // Incrémenté pour faire jouer chaque joueur
+            if ( index < enJeu.toArray().length-1) { // Incrémenté pour faire jouer chaque joueur
                 index++;
-            } else if ( index == Joueurs.toArray().length-1 ) {
+            } else if ( index == enJeu.toArray().length-1 ) {
                 index = 0;
             }
 
-            J = Joueurs.get(index); // Le joueur a qui c'est le tour
+            J = enJeu.get(index); // Le joueur a qui c'est le tour
 
             plateau.afficher();
 
             deplacement(J, plateau);
             placer(J, plateau);
 
-            for (int i = 0; i < Joueurs.toArray().length; i++) {
-                if (!verificationBouger(Joueurs.get(i), plateau)) {
-                    System.out.println(Joueurs.get(i).nom + " est éliminé");
-                    Joueurs.get(i).peutBouger = false;
-                    joueurElimine.add(Joueurs.get(i));
+            for (int i = 0; i < enJeu.toArray().length; i++) {
+                if (!verificationBouger(enJeu.get(i), plateau)) {
+                    System.out.println(enJeu.get(i).nom + " est éliminé");
+                    enJeu.get(i).peutBouger = false;
+                    joueurElimine.add(enJeu.get(i));
                 }
             }
 
             plateau.afficher();
             detruire(plateau);
 
-            for (int i = 0; i < Joueurs.toArray().length; i++) {
-                if (!verificationBouger(Joueurs.get(i), plateau)) {
-                    System.out.println(Joueurs.get(i).nom + " est éliminé");
-                    Joueurs.get(i).peutBouger = false;
-                    joueurElimine.add(Joueurs.get(i));
+            for (int i = 0; i < enJeu.toArray().length; i++) {
+                if (!verificationBouger(enJeu.get(i), plateau)) {
+                    System.out.println(enJeu.get(i).nom + " est éliminé");
+                    enJeu.get(i).peutBouger = false;
+                    joueurElimine.add(enJeu.get(i));
                 }
             }
+        }
 
-        }
-        private static void scores(List<Joueur> Joueurs) {
-            if (Joueurs.size() == 1) {
-                Joueur joueurEnVie = Joueurs.get(0);
-                joueurEnVie.ajouterScore(5); // cette méthode ajoute le score au joueur
-                System.out.println("Le joueur " + joueurEnVie.nom + " gagne 5 points et a maintenant un score de " + joueurEnVie.getScore());
+            Joueur gagnant = enJeu.get(0); // Le dernier joueur restant est le gagnant
+            gagnant.score += 5; // Ajouter 5 points au score du gagnant
+            System.out.println(gagnant.nom + " a gagné la partie et reçoit 5 points. Son score est maintenant de " + gagnant.getScore() + " points.");
+            System.out.println(" Les autres perdrent 2 points");
+
+            for (Joueur perdant : joueurElimine) {
+                perdant.score -= 2;
+                System.out.println(perdant.nom + " : " + perdant.score + " points");
             }
-        }
+
+
 
 
     }

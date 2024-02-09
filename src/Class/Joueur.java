@@ -1,7 +1,6 @@
 package Class;
 
 import java.util.Scanner;
-import static Class.GestionErreurs.verificationChaine;
 import static Class.GestionErreurs.verificationChar;
 
 
@@ -22,7 +21,7 @@ public class Joueur {
 
     public int colonne;
     public int ligne;
-    private int score;
+    public int score;
 
 
     public Joueur(){
