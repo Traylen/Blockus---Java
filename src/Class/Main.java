@@ -15,8 +15,7 @@ public class Main {
         /**
          * Fonctiion qui lance les autres fonctions, voir "Jeu.java"
          */
-        //menu(1);
-        Jouer();
+        menu(1);
     }
 }
 

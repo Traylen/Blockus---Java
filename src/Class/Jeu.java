@@ -7,13 +7,15 @@ import static Class.GestionErreurs.verificationBouger;
 import static Class.GestionErreurs.verificationEntier;
 import static Class.Interface.menu;
 
+
 import Class.Deplacements.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-
+import java.util.Random;
+import java.util.Collections;
 
     public class Jeu {
         int score;
@@ -52,6 +54,9 @@ import java.util.List;
             Joueur joueur = new Joueur();
             enJeu.add(joueur);
         }
+
+        Collections.shuffle(enJeu, new Random());
+
         caseDeDepart(enJeu);
 
         for (Joueur joueur : enJeu ){
@@ -104,17 +109,19 @@ import java.util.List;
             }
         }
 
-            Joueur gagnant = enJeu.get(0); // Le dernier joueur restant est le gagnant
-            gagnant.score += 5; // Ajouter 5 points au score du gagnant
-            System.out.println(gagnant.nom + " a gagné la partie et reçoit 5 points. Son score est maintenant de " + gagnant.getScore() + " points.");
-            System.out.println("Les autres perdrent 2 points");
+        Joueur gagnant = enJeu.get(0); // Le dernier joueur restant est le gagnant
+        gagnant.score += 5; // Ajouter 5 points au score du gagnant
+        System.out.println("\n ╭─────────────────────────────────────────────────────────────────────────────────────────── 》");
+        System.out.println(" │ "+ gagnant.nom + " a gagné la partie et reçoit 5 points. Son score est maintenant de " + gagnant.getScore() + " points.");
+        System.out.println(" │ Les autres perdent 2 points");
 
-            for (Joueur perdant : joueurElimine) {
-                perdant.score -= 2;
-                System.out.println(perdant.nom + " : " + perdant.score + " points");
-            }
-            System.out.println("\n Retour au menu...");
-            menu(1);
+        for (Joueur perdant : joueurElimine) {
+            perdant.score -= 2;
+            System.out.println(" │ " + perdant.nom + " : " + perdant.score + " points");
+        }
+        System.out.println(" ╰─────────────────────────────────────────────────────────────────────────────────────────── 》");
+        System.out.println("\n Retour au menu...");
+        menu(1);
     }
 }
 
