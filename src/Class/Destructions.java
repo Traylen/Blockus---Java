@@ -38,7 +38,7 @@ public class Destructions {
 
         while ( choix < 1 ) {
             /**
-             * Gestion des erreurs, si le joueur essaie de détruire une case out of range
+             * Gestion des erreurs, si le joueur essaie de détruire une case out of range, lignes puis colonnes
              */
             System.out.println("Entrez l'indice de la " + axe + " : ");
             choix = verificationEntier();

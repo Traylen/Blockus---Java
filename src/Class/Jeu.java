@@ -19,6 +19,9 @@ import java.util.Collections;
 
 
 public class Jeu {
+    /**
+     * Initialise les variables
+     */
     int score;
     public static int nbJoueurs = 0;
     public static ArrayList<Joueur> tousLesJoueurs = new ArrayList<Joueur>();

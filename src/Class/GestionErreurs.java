@@ -10,7 +10,7 @@ public class GestionErreurs {
 
         /**
          * Cette fonction permet à l'utilisateur d'entrer un entier
-         *  Elle permet de gérer les cas ou la valeur entrer ne correspond pas à un entier
+         *  Elle permet de gérer les cas où la valeur entrée ne correspond pas à un entier
          **/
 
         int valeur = 0;
@@ -42,7 +42,7 @@ public class GestionErreurs {
 
         /**
          * Cette fonction permet à l'utilisateur d'entrer une chaîne de charactère
-         *  Elle permet de gérer les cas ou la valeur entrer ne correspond pas à une chaîne de caractère
+         *  Elle permet de gérer les cas où la valeur entrée ne correspond pas à une chaîne de caractère
          **/
 
         String valeur = "O";
@@ -71,7 +71,7 @@ public class GestionErreurs {
 
         /**
          * Cette fonction permet à l'utilisateur d'entrer une chaîne de charactère
-         *  Elle permet de gérer les cas ou la valeur entrer ne correspond pas à une chaîne de caractère
+         *  Elle permet de gérer les cas ou la valeur entrée ne correspond pas à une chaîne de caractère
          **/
 
         char valeur = 'O';
@@ -111,6 +111,9 @@ public class GestionErreurs {
     }
 
     public static boolean verificationBouger(Joueur J, Plateau P){
+        /**
+         * Vérifie si le joueur peut bouger droite, gauche, haut et bas, return flase ou true
+         */
         if (P.plateau[J.ligne-1][J.colonne] != '□' && P.plateau[J.ligne+1][J.colonne] != '□' && P.plateau[J.ligne][J.colonne-1] != '□' && P.plateau[J.ligne][J.colonne+1] != '□') {
             return false;
         } else {
@@ -119,6 +122,9 @@ public class GestionErreurs {
     }
 
     public static boolean verificationPseudo(ArrayList<Joueur> listeJ, String nom) {
+        /**
+         * Vérifie si le pseudo du joueur est unique en parcourant la liste des joueurs
+         */
         boolean dejaPris = false;
         for (Joueur joueur : listeJ) {
             if ( joueur.nom.equals(nom)) {
@@ -129,6 +135,9 @@ public class GestionErreurs {
     }
 
     public static boolean verificationTag(ArrayList<Joueur> listeJ, char tag) {
+        /**
+         * Vérifie que le tag est unique en parcourant la liste des tag
+         */
         boolean dejaPris = false;
         for (Joueur joueur : listeJ) {
             if ( joueur.tag == tag ) {

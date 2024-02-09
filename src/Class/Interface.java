@@ -10,7 +10,6 @@ public class Interface {
         /**
          * Affiche les choix disponibles
          */
-
         System.out.println(" \n Bienvenue dans le Menu");
         System.out.println(" \n ╭────────────────────────╮");
         System.out.println(" │ 1 - Lire les règles    │");

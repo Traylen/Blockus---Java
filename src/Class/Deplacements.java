@@ -64,8 +64,6 @@ public class Deplacements {
             System.out.println(" │ Q   S   D  |  ←   ↓   →   |   X - Quitter   |   M - Menu │");
             System.out.println(" ╰──────────────────────────────────────────────────────────╯");
 
-            //System.out.println("R - Règles");
-            //System.out.println("X - Quitter");
             direction = verificationChaine().toUpperCase(); // Récupère une chaîne de caractère
 
             if (!direction.equals("Z") && !direction.equals("Q") &&
