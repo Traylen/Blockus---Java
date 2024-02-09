@@ -105,7 +105,6 @@ public class Jeu {
 
             for (int i = 0; i < enJeu.toArray().length; i++) {
                 if (!verificationBouger(enJeu.get(i), plateau)) {
-                    System.out.println(enJeu.get(i).nom + " est éliminé(e)");
                     enJeu.get(i).peutBouger = false;
                     joueurElimine.add(enJeu.get(i));
                 }
@@ -120,7 +119,7 @@ public class Jeu {
 
             for (Joueur perdant : joueurElimine) {
                 perdant.score -= 2;
-                System.out.println(perdant.nom + " : " + perdant.score + " points");
+                System.out.println(" │ " + perdant.nom + " : " + perdant.score + " points");
             }
 
         String nomFichier = "scores.txt"; // Définir le nom du fichier de sauvegarde
