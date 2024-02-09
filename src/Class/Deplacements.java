@@ -56,7 +56,7 @@ public class Deplacements {
 
     public static String choisirDirection(Joueur J) {
         String direction = "O";
-        System.out.println("\n Au tour de " + J.nom);
+        System.out.println("\n Au tour de " + J.nom + " - " + J.tag);
         while ( direction == "O" ){
 
             System.out.println(" \n ╭───────────────────────────────────────────╮");

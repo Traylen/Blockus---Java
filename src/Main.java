@@ -1,10 +1,13 @@
-package Class;
+//package Class;
+//package Class;
 import java.lang.invoke.TypeDescriptor;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static Class.Interface.menu;
 import static Class.Jeu.*;
+import Class.Joueur;
 
 
 
@@ -17,6 +20,7 @@ public class Main {
          */
         //menu(1);
         Jouer();
+
     }
 }
 

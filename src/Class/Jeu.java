@@ -15,13 +15,14 @@ import java.util.Iterator;
 import java.util.List;
 
 
-    public class Jeu {
-        int score;
-
+public class Jeu {
+    int score;
     public static int nbJoueurs = 0;
-        public int getScore() {
-            return this.score;
-        }
+    public static ArrayList<Joueur> tousLesJoueurs = new ArrayList<Joueur>();
+
+    public int getScore() {
+        return this.score;
+    }
 
     public static void Jouer() {
         Plateau plateau = new Plateau();
@@ -48,9 +49,10 @@ import java.util.List;
 
         ArrayList<Joueur> enJeu = new ArrayList<>();
         for (int i = 1; i <= nbJoueurs; i++) {
-            System.out.println("Création du joueur " + i);
+            System.out.println("\nCréation du joueur " + i);
             Joueur joueur = new Joueur();
             enJeu.add(joueur);
+            tousLesJoueurs.add(joueur);
         }
         caseDeDepart(enJeu);
 
