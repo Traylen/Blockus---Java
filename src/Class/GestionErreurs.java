@@ -1,5 +1,6 @@
 package Class;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -115,5 +116,25 @@ public class GestionErreurs {
         } else {
             return true;
         }
+    }
+
+    public static boolean verificationPseudo(ArrayList<Joueur> listeJ, String nom) {
+        boolean dejaPris = false;
+        for (Joueur joueur : listeJ) {
+            if ( joueur.nom.equals(nom)) {
+                dejaPris = true;
+            }
+        }
+        return dejaPris;
+    }
+
+    public static boolean verificationTag(ArrayList<Joueur> listeJ, char tag) {
+        boolean dejaPris = false;
+        for (Joueur joueur : listeJ) {
+            if ( joueur.tag == tag ) {
+                dejaPris = true;
+            }
+        }
+        return dejaPris;
     }
 }
