@@ -107,16 +107,14 @@ import java.util.List;
             Joueur gagnant = enJeu.get(0); // Le dernier joueur restant est le gagnant
             gagnant.score += 5; // Ajouter 5 points au score du gagnant
             System.out.println(gagnant.nom + " a gagné la partie et reçoit 5 points. Son score est maintenant de " + gagnant.getScore() + " points.");
-            System.out.println(" Les autres perdrent 2 points");
+            System.out.println("Les autres perdrent 2 points");
 
             for (Joueur perdant : joueurElimine) {
                 perdant.score -= 2;
                 System.out.println(perdant.nom + " : " + perdant.score + " points");
             }
-
-
-
-
+            System.out.println("\n Retour au menu...");
+            menu(1);
     }
 }
 
