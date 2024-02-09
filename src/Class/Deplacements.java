@@ -59,10 +59,10 @@ public class Deplacements {
         System.out.println("\n Au tour de " + J.nom);
         while ( direction == "O" ){
 
-            System.out.println(" \n ╭───────────────────────────────────────────╮");
-            System.out.println(" │     Z      |      ↑       |   R - Règles  │");
-            System.out.println(" │ Q   S   D  |  ←   ↓   →   |   X - Quitter │");
-            System.out.println(" ╰───────────────────────────────────────────╯");
+            System.out.println(" \n ╭──────────────────────────────────────────────────────────╮");
+            System.out.println(" │     Z      |      ↑       |   R - Règles                 │");
+            System.out.println(" │ Q   S   D  |  ←   ↓   →   |   X - Quitter   |   M - Menu │");
+            System.out.println(" ╰──────────────────────────────────────────────────────────╯");
 
             //System.out.println("R - Règles");
             //System.out.println("X - Quitter");
@@ -70,7 +70,8 @@ public class Deplacements {
 
             if (!direction.equals("Z") && !direction.equals("Q") &&
                 !direction.equals("S") && !direction.equals("D") &&
-                !direction.equals("X") && !direction.equals("R")) {
+                !direction.equals("X") && !direction.equals("R") &&
+                !direction.equals("M")){
                 if (!direction.equals("X")){
                     direction = "0";
                 }
@@ -143,8 +144,10 @@ public class Deplacements {
                      */
                     System.out.println("Règles du jeu : \n\n╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮\n│ 2 à 4 joueurs arrivent dans l'arène, le dernier en vie remporte la partie !                                                           │\n│ Les joueurs jouent chacun leur tour, lors d'un tour un joueur doit :                                                                  │\n│ • Se déplacer                                                                                                                         │\n│ • Détruire une case                                                                                                                   │\n│ Lorsqu'un joueur ne peut plus se déplacer, donc que toutes les cases autour de lui sont soit occupées, soit détruites, il est éliminé.│\n╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯");
                     break;
+                case "M":
+                    menu(1);
                 default: // Exeptions
-                    System.out.println("Si tu mets rien ça va pas marcher hein");
+                    System.out.println("Merci de rentrer une lettre valide (sinon ça marche va pas marcher hein)");
                     break;
             }
         }
