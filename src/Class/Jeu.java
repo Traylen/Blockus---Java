@@ -124,9 +124,9 @@ public class Jeu {
         ArrayList<Joueur> tousLesJoueurs = new ArrayList<>(enJeu);
         tousLesJoueurs.addAll(joueurElimine); // Combine les joueurs en jeu et éliminés pour sauvegarder tous les scores
         sauvegarde.sauvegarderScores(tousLesJoueurs, nomFichier); // Utiliser la classe sauvegarde pour sauvegarder les scores
-            System.out.println(" ╰─────────────────────────────────────────────────────────────────────────────────────────── 》");
-            System.out.println("\n Retour au menu...");
-            menu(1);
+        System.out.println(" ╰─────────────────────────────────────────────────────────────────────────────────────────── 》");
+        System.out.println("\n Retour au menu...");
+        menu(1);
     }
 }
 
