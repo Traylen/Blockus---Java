@@ -110,18 +110,19 @@ import java.util.List;
                     joueurElimine.add(enJeu.get(i));
                 }
             }
-
         }
-        System.out.println("Partie terminée, X à gagné !");
-        System.out.println("\n Retour au menu...");
-        menu(1);
-        //private static void scores(List<Joueur> enJeu) {
-           // if (enJeu.size() == 1) {
-           //     Joueur joueurEnVie = enJeu.get(0);
-           //     joueurEnVie.ajouterScore(5); // cette méthode ajoute le score au joueur
-            //    System.out.println("Le joueur " + joueurEnVie.nom + " gagne 5 points et a maintenant un score de " + joueurEnVie.getScore());
-          //  }
-    //    }
+
+            Joueur gagnant = enJeu.get(0); // Le dernier joueur restant est le gagnant
+            gagnant.score += 5; // Ajouter 5 points au score du gagnant
+            System.out.println(gagnant.nom + " a gagné la partie et reçoit 5 points. Son score est maintenant de " + gagnant.getScore() + " points.");
+            System.out.println(" Les autres perdrent 2 points");
+
+            for (Joueur perdant : joueurElimine) {
+                perdant.score -= 2;
+                System.out.println(perdant.nom + " : " + perdant.score + " points");
+            }
+
+
 
 
     }
