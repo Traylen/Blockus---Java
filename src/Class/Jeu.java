@@ -7,15 +7,10 @@ import static Class.GestionErreurs.verificationBouger;
 import static Class.GestionErreurs.verificationEntier;
 import static Class.Interface.menu;
 
-import Class.Deplacements.*;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
 
 
-    public class Jeu {
+public class Jeu {
         int score;
 
     public static int nbJoueurs = 0;
@@ -113,6 +108,11 @@ import java.util.List;
                 perdant.score -= 2;
                 System.out.println(perdant.nom + " : " + perdant.score + " points");
             }
+
+        String nomFichier = "scores.txt"; // Définir le nom du fichier de sauvegarde
+        ArrayList<Joueur> tousLesJoueurs = new ArrayList<>(enJeu);
+        tousLesJoueurs.addAll(joueurElimine); // Combine les joueurs en jeu et éliminés pour sauvegarder tous les scores
+        sauvegarde.sauvegarderScores(tousLesJoueurs, nomFichier); // Utiliser la classe sauvegarde pour sauvegarder les scores
             System.out.println("\n Retour au menu...");
             menu(1);
     }
