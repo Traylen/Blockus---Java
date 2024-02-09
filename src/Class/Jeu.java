@@ -5,6 +5,8 @@ import static Class.Deplacements.*;
 import static Class.Destructions.*;
 import static Class.GestionErreurs.verificationBouger;
 import static Class.GestionErreurs.verificationEntier;
+import static Class.Interface.menu;
+
 import Class.Deplacements.*;
 
 import java.util.ArrayList;
@@ -56,7 +58,7 @@ import java.util.List;
             placer(joueur, plateau);
         }
 
-        System.out.println("QUE LA PARTIE COMMENCE");
+        System.out.println("Lancement de la partie en cours...");
 
         /**
          * Lancement des fonctions pour le déroulement de la partie
@@ -66,7 +68,6 @@ import java.util.List;
         ArrayList<Joueur> joueurElimine = new ArrayList<>(); // List qui stock les joueurs éliminés
 
         while ( enJeu.toArray().length > 1 ) {
-            System.out.println("Début boucle");
 
             for (Joueur elimine : joueurElimine) {
                 System.out.println(elimine.nom + " est éliminé(e)");
@@ -111,6 +112,9 @@ import java.util.List;
             }
 
         }
+        System.out.println("Partie terminée, X à gagné !");
+        System.out.println("\n Retour au menu...");
+        menu(1);
         //private static void scores(List<Joueur> enJeu) {
            // if (enJeu.size() == 1) {
            //     Joueur joueurEnVie = enJeu.get(0);
