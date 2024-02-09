@@ -92,14 +92,6 @@ import java.util.List;
             deplacement(J, plateau);
             placer(J, plateau);
 
-            for (int i = 0; i < enJeu.toArray().length; i++) {
-                if (!verificationBouger(enJeu.get(i), plateau)) {
-                    System.out.println(enJeu.get(i).nom + " est éliminé(e)");
-                    enJeu.get(i).peutBouger = false;
-                    joueurElimine.add(enJeu.get(i));
-                }
-            }
-
             plateau.afficher();
             detruire(plateau);
 
