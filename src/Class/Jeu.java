@@ -44,15 +44,15 @@ import java.util.List;
 
         System.out.println("Lancement d'une partie à " + nbJoueurs + " joueurs");
 
-        ArrayList<Joueur> Joueurs = new ArrayList<>();
+        ArrayList<Joueur> enJeu = new ArrayList<>();
         for (int i = 1; i <= nbJoueurs; i++) {
             System.out.println("Création du joueur " + i);
             Joueur joueur = new Joueur();
-            Joueurs.add(joueur);
+            enJeu.add(joueur);
         }
-        caseDeDepart(Joueurs);
+        caseDeDepart(enJeu);
 
-        for (Joueur joueur : Joueurs ){
+        for (Joueur joueur : enJeu ){
             placer(joueur, plateau);
         }
 
@@ -63,58 +63,57 @@ import java.util.List;
          */
         int index = -1; // Permet de gérer le tour de chaque joueurs
         Joueur J; // Variable qui stock le joueur qui joue
-        ArrayList<Joueur> joueurElimine = new ArrayList<>();
+        ArrayList<Joueur> joueurElimine = new ArrayList<>(); // List qui stock les joueurs éliminés
 
-        while ( Joueurs.toArray().length > 1 ) {
+        while ( enJeu.toArray().length > 1 ) {
             System.out.println("Début boucle");
-
 
             for (Joueur elimine : joueurElimine) {
                 System.out.println(elimine.nom + " est éliminé(e)");
-                Joueurs.remove(elimine);
+                enJeu.remove(elimine);
             }
 
-            if (Joueurs.toArray().length == 1) {
+            if (enJeu.toArray().length == 1) {
                 System.out.println("FIN DE LA PARTIE");
                 break;
             }
 
-            if ( index < Joueurs.toArray().length-1) { // Incrémenté pour faire jouer chaque joueur
+            if ( index < enJeu.toArray().length-1) { // Incrémenté pour faire jouer chaque joueur
                 index++;
-            } else if ( index == Joueurs.toArray().length-1 ) {
+            } else if ( index == enJeu.toArray().length-1 ) {
                 index = 0;
             }
 
-            J = Joueurs.get(index); // Le joueur a qui c'est le tour
+            J = enJeu.get(index); // Le joueur a qui c'est le tour
 
             plateau.afficher();
 
             deplacement(J, plateau);
             placer(J, plateau);
 
-            for (int i = 0; i < Joueurs.toArray().length; i++) {
-                if (!verificationBouger(Joueurs.get(i), plateau)) {
-                    System.out.println(Joueurs.get(i).nom + " est éliminé(e)");
-                    Joueurs.get(i).peutBouger = false;
-                    joueurElimine.add(Joueurs.get(i));
+            for (int i = 0; i < enJeu.toArray().length; i++) {
+                if (!verificationBouger(enJeu.get(i), plateau)) {
+                    System.out.println(enJeu.get(i).nom + " est éliminé(e)");
+                    enJeu.get(i).peutBouger = false;
+                    joueurElimine.add(enJeu.get(i));
                 }
             }
 
             plateau.afficher();
             detruire(plateau);
 
-            for (int i = 0; i < Joueurs.toArray().length; i++) {
-                if (!verificationBouger(Joueurs.get(i), plateau)) {
-                    System.out.println(Joueurs.get(i).nom + " est éliminé(e)");
-                    Joueurs.get(i).peutBouger = false;
-                    joueurElimine.add(Joueurs.get(i));
+            for (int i = 0; i < enJeu.toArray().length; i++) {
+                if (!verificationBouger(enJeu.get(i), plateau)) {
+                    System.out.println(enJeu.get(i).nom + " est éliminé(e)");
+                    enJeu.get(i).peutBouger = false;
+                    joueurElimine.add(enJeu.get(i));
                 }
             }
 
         }
-        //private static void scores(List<Joueur> Joueurs) {
-           // if (Joueurs.size() == 1) {
-           //     Joueur joueurEnVie = Joueurs.get(0);
+        //private static void scores(List<Joueur> enJeu) {
+           // if (enJeu.size() == 1) {
+           //     Joueur joueurEnVie = enJeu.get(0);
            //     joueurEnVie.ajouterScore(5); // cette méthode ajoute le score au joueur
             //    System.out.println("Le joueur " + joueurEnVie.nom + " gagne 5 points et a maintenant un score de " + joueurEnVie.getScore());
           //  }

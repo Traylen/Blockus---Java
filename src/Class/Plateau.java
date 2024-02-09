@@ -50,7 +50,7 @@ public class Plateau {
 
         for (int i = 0; i < plateau.length; i++) { // Itération sur toute les lignes du plateau
             if ( i == 1) {
-                System.out.print("\n│      " + "―――――――――――――――――――――――――――――――――  │" ); // Ajout de la barre qui sépare le plateau et la les indices des colonnes
+                System.out.print("\n│      " + "――――――――――――――――――――――――――――――――― │" ); // Ajout de la barre qui sépare le plateau et la les indices des colonnes
             }
             if (i > 0 && i < plateau.length - 1){ // Si i correspond à une ligne du tableau
                 if (i >= 10) {
@@ -66,8 +66,10 @@ public class Plateau {
                     if ( j > 0 && j < plateau[i].length-1)
                         if ( j == 1 ) {
                             System.out.print("│       " + j + " "); // Ajout de l'indice de la 1ère colone
-                        } else if ( j >= 10) {
+                        } else if ( j == 10) {
                             System.out.print(" " + j ); // Ajout de l'indice des colonnes à un chiffre
+                        } else if ( j == 11) {
+                            System.out.print(" " + j + " " ); // Ajout de l'indice des colonnes à un chiffre
                         } else {
                             System.out.print(" " + j + " "); // Ajout de l'indice des colonnes à deux chiffres
                         }
@@ -76,7 +78,7 @@ public class Plateau {
                     System.out.print(plateau[i][j] + "  "); // Affichage des cases séparé par des espaces
                 }
             }
-            System.out.print(" │");
+            System.out.print("│");
         }
 
         System.out.println("\n╰────────────────────────────────────────╯"); // Bordure inférieure
